@@ -1,0 +1,4 @@
+#! /bin/bash 
+
+bat="$(acpi -b | awk '{print $4}')"
+echo -e "$bat "
