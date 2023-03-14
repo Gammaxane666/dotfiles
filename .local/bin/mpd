@@ -1,0 +1,4 @@
+#!bin/sh
+mpt=$(mpc current -f %title%)
+icon1='fi '
+echo "$mpt"
