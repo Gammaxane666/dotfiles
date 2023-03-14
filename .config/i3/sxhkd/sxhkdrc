@@ -1,0 +1,94 @@
+        ################################################### APPLICATIONS #############################################################
+
+alt + Return
+    alacritty
+
+ctrl + space
+    dmenu_run
+
+alt + b
+    qutebrowser
+
+alt + comma ; {l,m}
+    {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q,}
+
+alt + slash ; {p,e,v}
+    {alacritty -e ncmpcpp,alacritty -e lf, alacritty -e vi}
+
+        ################################################### AUDIO BINDINGS #############################################################
+
+ctrl + shift + m
+        amixer set Master toggle
+
+ctrl + shift + Up
+        amixer set Master 10%+ unmute
+
+ctrl + shift + Down
+        amixer set Master 10%- unmute
+
+alt + shift + m
+        amixer set Capture toggle
+
+alt + shift + Up
+        amixer set Capture 10%+ unmute
+
+alt + shift + Down
+        amixer set Capture 10%- unmute
+
+        ################################################### MOVMENT #############################################################
+
+alt+{h,j,k,l}
+    i3-msg focus {left,down,up,right}
+
+alt+shift+{h,j,k,l}
+    i3-msg move {left,down,up,right}
+
+alt + space
+    i3-msg fullscreen toggle
+
+alt + shift + space
+    i3-msg floating toggle
+
+super + space
+    i3-msg focus mode_toggle
+
+        ################################################### WORKSPACES #############################################################
+
+alt + {1-8}
+    i3-msg workspace {1-8}
+
+alt + shift+{1-8}
+    i3-msg move container to workspace number {1-8}
+
+alt + q
+    i3-msg restart
+
+alt + shift + c
+    i3-msg kill
+
+alt + shift + q
+    i3-msg reload
+
+super + ctrl + {h,j,k,l}
+    i3-msg resize {grow width 3 px or 3 ppt, shrink height 3 px or 3 ppt, grow height 3 px or 3 ppt, shrink width 3 px or 3 ppt}
+
+        ################################################### POLYBAR #############################################################
+
+super + y
+    polybar-msg cmd toggle
+
+        ################################################### BRIGHTNESS #############################################################
+
+ctrl + shift + Right
+    xbacklight -inc 3
+
+ctrl + shift + Left
+    xbacklight -dec 3
+
+        ################################################### SCREENSHOT #############################################################
+
+Print
+    scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100
+
+ctrl + Print
+    import png:- | xclip -selection clipboard -t image/png
