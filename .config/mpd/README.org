@@ -1,0 +1,43 @@
+#+title: MPD (Music Player Deamon) Configuration File
+#+property: header-args :tangle mpd.conf
+
+* Contents :toc:
+- [[#music-directory][Music Directory]]
+- [[#general-settings][General Settings]]
+- [[#output][Output]]
+
+* Music Directory
+This is the directory that mpd will look for to find your music
+#+begin_src conf
+music_directory "~/Music/"
+#+end_src
+
+* General Settings
+Settings that I don't know enough about
+#+begin_src conf
+log_file "~/.config/mpd/mpd.log"
+pid_file "~/.config/mpd/mpd.pid"
+state_file "~/.config/mpd/mpdstate"
+playlist_directory "~/Music/playlist"
+restore_paused "yes"
+db_file "~/.config/mpd/mpd.db"
+bind_to_address "127.0.0.1"
+port "6600"
+#+end_src
+
+* Output
+#+begin_src conf
+audio_output {
+        type "pulse"
+        name "pulse"
+        device         "pulse"
+        mixer_type      "hardware"
+}
+
+audio_output {
+    type                    "fifo"
+    name                    "my_fifo"
+    path                    "/tmp/mpd.fifo"
+    format                  "44100:16:2"
+}
+#+end_src
