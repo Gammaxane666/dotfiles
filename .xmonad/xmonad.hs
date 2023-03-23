@@ -104,14 +104,13 @@ myManageHook = composeAll
     , resource  =? "kdesktop"       --> doIgnore
     ]<+> namedScratchpadManageHook myScratchPads
 
-
 myStartupHook = do
   setDefaultCursor xC_left_ptr
   spawn     " sxhkd -m -1 -c ~/.xmonad/sxhkd/sxhkdrc"
   spawn     "~/.xmonad/polybar/launch.sh"
   spawnOnce "picom --vsync"
-  -- spawnOnce "sleep 10 && dunst"
-  spawnOnce "mpd"
+  --spawnOnce "sleep 10 && dunst"
+  -- spawnOnce "mpd"
   spawnOnce "~/.fehbg"
   spawnOnce "nm-applet"
 
