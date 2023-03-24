@@ -2,7 +2,7 @@
 static const Block blocks[] = {
 	/*Icon*/ /*Command*/	 	                            /*Update Interval*/	/*Update Signal*/
     //{" 🐧 ", "~/.config/suckless/dwmblocks/scripts/kernel",	 360,		          2},
-	{" 💻 ", "~/.config/suckless/dwmblocks/scripts/memory",	     3, 	              1},
+	{"  ", "~/.config/suckless/dwmblocks/scripts/memory",	     3, 	              1},
 
 	{"  ", "~/.config/suckless/dwmblocks/scripts/upt",		     60,		          2},
 
@@ -12,7 +12,7 @@ static const Block blocks[] = {
 
     {"   ", "~/.config/suckless/dwmblocks/scripts/battery",     1,                       1},
 
-	{"  ", "~/.config/suckless/dwmblocks/scripts/clock",	     60,	              0},
+	{"  ", "~/.config/suckless/dwmblocks/scripts/clock",	     60,	              0},
 
 };
 

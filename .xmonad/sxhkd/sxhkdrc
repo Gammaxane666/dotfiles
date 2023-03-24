@@ -4,12 +4,6 @@ alt + b
 ctrl + space
     rofi -show drun
 
-ctrl + shift + e
-    emacsclient -c
-
-ctrl + shift + x
-    emacsclient -c $HOME/.xmonad/XMonad-Polybar.org
-
 alt + slash ; {l,m,c}
     {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q, $HOME/.config/suckless/dmenu/scripts/dm-confedit}
 
