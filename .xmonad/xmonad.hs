@@ -40,7 +40,7 @@ myTerminal = "alacritty"
 myScratchPads :: [NamedScratchpad]
 myScratchPads = [ NS "ncmpcpp" spawnNcmpcpp findNcmpcpp manageNcmpcpp
                 , NS "lf" spawnLf findLf manageLf
-                , NS "term" spawnTerm findTerm manageTerm
+                , NS "vi" spawnVi findVi manageVi
                 ]
   where
     spawnNcmpcpp  = myTerminal ++ " -t ncmpcpp -e ncmpcpp"
@@ -61,9 +61,9 @@ myScratchPads = [ NS "ncmpcpp" spawnNcmpcpp findNcmpcpp manageNcmpcpp
                  t = 0.95 -h
                  l = 0.95 -w
 
-    spawnTerm  = myTerminal ++ " -t tmuxTerm -e tmux -u"
-    findTerm   = title =? "tmuxTerm"
-    manageTerm = customFloating $ W.RationalRect l t w h
+    spawnVi    = myTerminal ++ " -t vi -e vi"
+    findVi     = title =? "vi"
+    manageVi   = customFloating $ W.RationalRect l t w h
                where
                  h = 0.95
                  w = 0.987
@@ -74,7 +74,7 @@ myKeys = [
   ("M-<Return>", spawn(myTerminal))
  ,("M-e", namedScratchpadAction myScratchPads "lf")
  ,("M-p", namedScratchpadAction myScratchPads "ncmpcpp")
- ,("M-`", namedScratchpadAction myScratchPads "term")
+ ,("M-`", namedScratchpadAction myScratchPads "vi")
  ,("M-S-<Return>", windows W.swapMaster)
  ,("M-h", windows W.focusDown)
  ,("M-t", windows W.focusUp)

@@ -174,85 +174,14 @@ _G.packer_plugins = {
     path = "/home/acer/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  undotree = {
-    commands = { "UndotreeToggle", "UndotreeFocus", "UndotreeShow", "UndotreeHide" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/acer/.local/share/nvim/site/pack/packer/opt/undotree",
-    url = "https://github.com/mbbill/undotree"
-  },
   ["vim-gruvbox8"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/acer/.local/share/nvim/site/pack/packer/opt/vim-gruvbox8",
+    loaded = true,
+    path = "/home/acer/.local/share/nvim/site/pack/packer/start/vim-gruvbox8",
     url = "https://github.com/lifepillar/vim-gruvbox8"
   }
 }
 
 time([[Defining packer_plugins]], false)
-local module_lazy_loads = {
-  ["^vim%-gruvbox8"] = "vim-gruvbox8"
-}
-local lazy_load_called = {['packer.load'] = true}
-local function lazy_load_module(module_name)
-  local to_load = {}
-  if lazy_load_called[module_name] then return nil end
-  lazy_load_called[module_name] = true
-  for module_pat, plugin_name in pairs(module_lazy_loads) do
-    if not _G.packer_plugins[plugin_name].loaded and string.match(module_name, module_pat) then
-      to_load[#to_load + 1] = plugin_name
-    end
-  end
-
-  if #to_load > 0 then
-    require('packer.load')(to_load, {module = module_name}, _G.packer_plugins)
-    local loaded_mod = package.loaded[module_name]
-    if loaded_mod then
-      return function(modname) return loaded_mod end
-    end
-  end
-end
-
-if not vim.g.packer_custom_loader_enabled then
-  table.insert(package.loaders, 1, lazy_load_module)
-  vim.g.packer_custom_loader_enabled = true
-end
-
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'UndotreeHide', function(cmdargs)
-          require('packer.load')({'undotree'}, { cmd = 'UndotreeHide', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'undotree'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('UndotreeHide ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'UndotreeToggle', function(cmdargs)
-          require('packer.load')({'undotree'}, { cmd = 'UndotreeToggle', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'undotree'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('UndotreeToggle ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'UndotreeFocus', function(cmdargs)
-          require('packer.load')({'undotree'}, { cmd = 'UndotreeFocus', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'undotree'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('UndotreeFocus ', 'cmdline')
-      end})
-pcall(vim.api.nvim_create_user_command, 'UndotreeShow', function(cmdargs)
-          require('packer.load')({'undotree'}, { cmd = 'UndotreeShow', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'undotree'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('UndotreeShow ', 'cmdline')
-      end})
-time([[Defining lazy-load commands]], false)
-
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

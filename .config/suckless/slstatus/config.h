@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
-const unsigned int interval = 10000;
+const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
@@ -65,18 +65,12 @@ static const char unknown_str[] = "n/a";
 */
 
 static const struct arg args[] = {
-        { cpu_perc,             "^c#03a598^  %s%% |",      NULL },
-
-        { ram_used,             "^c#fe8019^  %s |",        NULL },
-
-        { uptime,                "^c#98971a^  %s |",        NULL},
-
-        { battery_perc,         "^c#d79921^   %s%%",           "BAT0" },
-
-        { battery_state,        "(%s) |",                             "BAT0" },
-
-        { datetime,             "^c#8ec07c^   %s",        "%a,%d-%b (%H:%M) " },
-
-        { keymap,               "^c#d3869b^%s |      ",                       NULL },
+        { cpu_perc,             "^c#03a598^         %s%% ^c#ffffff^|",      NULL },
+        { ram_used,             "^c#fe8019^  %s ^c#ffffff^|",        NULL },
+        { uptime,                "^c#98971a^  %s ^c#ffffff^|",       NULL},
+        { keymap,               "^c#d3869b^  %s ^c#ffffff^|",          NULL },
+        { battery_perc,         "^c#d79921^   %s%%",       "BAT0"},
+        { battery_state,        "(%s) ^c#ffffff^|",                   "BAT0" },
+        { datetime,             "^c#8ec07c^  %s ^c#ffffff^|   ",        "%a,%d-%b(%H:%M)" },
         
 };
