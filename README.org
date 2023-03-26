@@ -3,4 +3,7 @@
 My XMonad Rice
 #+html: <p align="center"><img src="https://github.com/Gammaxane666/dotfiles/blob/master/.github/ArchDesktop.png" /></p>
 
+My DWM Rice
+#+html: <p align="center"><img src="https://github.com/Gammaxane666/dotfiles/blob/master/.github/DwmDesktop.png" /></p>
+
 BTW I use Arch
