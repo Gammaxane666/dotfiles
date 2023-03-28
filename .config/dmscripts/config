@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-DMENU="rofi -dmenu"
+DMENU="rofi -dmenu -p Run: -i -l 6"
 # PDF_VIEWER="zathura"
 DMBROWSER="qutebrowser"
 DMTERM="alacritty -e"
