@@ -434,3 +434,7 @@ Mar 28 19:01 : config: option 'device' on line 15 was not recognized
 Mar 28 19:05 : exception: Bad song index
 Mar 28 19:05 : exception: Bad song index
 Mar 28 19:06 : player: played "SXMPRA  CowBell Warrior.mp3"
+Mar 29 12:52 : config: option 'device' on line 15 was not recognized
+Mar 29 12:53 : player: played "  Go Down Deh.mp3"
+Mar 29 13:33 : player: played "Selina Gomez  Calm Down.mp3"
+Mar 29 20:49 : config: option 'device' on line 15 was not recognized
