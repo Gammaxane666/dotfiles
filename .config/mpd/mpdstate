@@ -2,8 +2,8 @@ sw_volume: 100
 audio_device_state:1:pulse
 audio_device_state:1:my_fifo
 state: pause
-current: 16
-time: 5.748000
+current: 4
+time: 55.527000
 random: 1
 repeat: 0
 single: 0
@@ -12,22 +12,13 @@ crossfade: 3
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:Tigini.mp3
-1:Worth Nothing.mp3
-2:Bara Bara.mp3
-3:Danza Kuduro.mp3
-4:Jai Shree Ram.mp3
-5:Kosandra.mp3
-6:Nina O.mp3
-7:Con Calma.mp3
-8:Dura.mp3
-9:CowBell Warrior.mp3
-10:555 Budi.mp3
-11:Believer.mp3
-12:Cheap Thrills.mp3
-13:Go Down Deh.mp3
-14:GoA Shum.mp3
-15:LEVELUP.mp3
-16:Waka Waka.mp3
-17:Unstoppable.mp3
+0:Imagine Dragons  Believer.mp3
+1:555  Budi.mp3
+2:Sia  Cheap Thrills.mp3
+3:Daddy Yanky  Con Calma.mp3
+4:SXMPRA  CowBell Warrior.mp3
+5:Daddy Yanky  Dura.mp3
+6:Jono  LEVELUP.mp3
+7:Shakira  Waka Waka.mp3
+8:Oliver Tree  Worth Nothing.mp3
 playlist_end

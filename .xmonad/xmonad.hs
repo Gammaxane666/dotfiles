@@ -77,6 +77,7 @@ myKeys = [
  ,("M-`", namedScratchpadAction myScratchPads "vi")
  ,("M-S-<Return>", windows W.swapMaster)
  ,("M-h", windows W.focusDown)
+ ,("M-c", kill)
  ,("M-t", windows W.focusUp)
 
  ,("M-S-h", sendMessage Shrink)

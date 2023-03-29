@@ -2,7 +2,7 @@
 #
 # Script name: dm-logout
 # Description: Logout, shutdown, reboot or lock screen.
-# Dependencies: dmenu, systemd, slock, 󰜺 Notify-send
+# Dependencies: dmenu, systemd, slock, notify-send
 # GitLab: https://www.gitlab.com/dwt1/dmscripts
 # License: https://www.gitlab.com/dwt1/dmscripts/LICENSE
 # Contributors: Derek Taylor, 
@@ -19,18 +19,18 @@ if [[  -f "${_path}/_dm-helper.sh" ]]; then
   source "${_path}/_dm-helper.sh"
 else
   # shellcheck disable=SC1090
-  echo "󰜺 No helper-script found"
+  echo "No helper-script found"
 fi
 
-# script will 󰜺 Not hit this if there is no config-file to load
+# script will not hit this if there is no config-file to load
 # shellcheck disable=SC1090
 source "$(get_config)"
 
-# use 󰜺 Notify-send if run in dumb term
+# use notify-send if run in dumb term
 # TODO: add abillity to control from config.
 _out="echo"
 if [[ ${TERM} == 'dumb' ]]; then
-    _out="󰜺 Notify-send"
+    _out="notify-send"
 fi
 
 output(){
@@ -64,12 +64,10 @@ main() {
     # What to do when/if we choose one of the options.
     case $choice in
         '󰍃 Logout')
-            if [[ "$(echo -e "󰜺 No\n Yes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
+            if [[ "$(echo -e "No\nYes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
                 for manager in "${MANAGERS[@]}"; do 
                     killall "${manager}" || output "Logging Out"
                 done
-            else
-                output "User chose 󰜺 Not to logout." && exit 1
             fi
             ;;
         ' Lock screen')
@@ -77,17 +75,17 @@ main() {
             ${logout_locker}
             ;;
         ' Reboot')
-            if [[ "$(echo -e "󰜺 No\n Yes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
+            if [[ "$(echo -e "No\nYes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
                 systemctl reboot
             fi
             ;;
         '⏻ Shutdown')
-            if [[ "$(echo -e "󰜺 No\n Yes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
+            if [[ "$(echo -e "No\nYes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
                 systemctl poweroff
             fi
             ;;
         '󰤄 Sleep')
-            if [[ "$(echo -e "󰜺 No\n Yes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
+            if [[ "$(echo -e "No\nYes" | ${DMENU} "${choice}?" "${@}" )" == "Yes" ]]; then
                 systemctl suspend
             fi
             ;;

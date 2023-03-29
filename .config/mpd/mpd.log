@@ -176,3 +176,261 @@ Mar 21 13:29 : player: played "CowBell Warrior.mp3"
 Mar 21 13:33 : player: played "Worth Nothing.mp3"
 Mar 21 13:33 : player: played "Waka Waka.mp3"
 Mar 21 13:36 : player: played "Tigini.mp3"
+Mar 28 13:59 : config: option 'device' on line 15 was not recognized
+Mar 28 13:59 : exception: Failed to decode /home/acer/Music/Waka Waka.mp3; Failed to open '/home/acer/Music/Waka Waka.mp3': No such file or directory
+Mar 28 13:59 : player: played "Waka Waka.mp3"
+Mar 28 13:59 : update: removing 555 Budi.mp3
+Mar 28 13:59 : update: removing Bara Bara.mp3
+Mar 28 13:59 : update: removing Be kind.mp3
+Mar 28 13:59 : update: removing Believer.mp3
+Mar 28 13:59 : update: removing Calm Down.mp3
+Mar 28 13:59 : update: removing Cheap Thrills.mp3
+Mar 28 13:59 : update: removing Con Calma.mp3
+Mar 28 13:59 : update: removing CowBell Warrior.mp3
+Mar 28 13:59 : update: removing Dandelions.mp3
+Mar 28 13:59 : update: removing Danza Kuduro.mp3
+Mar 28 13:59 : update: removing Dura.mp3
+Mar 28 13:59 : update: removing Go Down Deh.mp3
+Mar 28 13:59 : update: removing GoA Shum.mp3
+Mar 28 13:59 : update: removing Happier.mp3
+Mar 28 13:59 : update: removing Heat Waves.mp3
+Mar 28 13:59 : update: removing Hey Ram.mp3
+Mar 28 13:59 : update: removing Hope.mp3
+Mar 28 13:59 : update: removing Its My Life Sri.mp3
+Mar 28 13:59 : update: removing Jai Shree Ram.mp3
+Mar 28 13:59 : update: removing Kosandra.mp3
+Mar 28 13:59 : update: removing LEVELUP.mp3
+Mar 28 13:59 : update: removing Locked Away.mp3
+Mar 28 13:59 : update: removing Lovely.mp3
+Mar 28 13:59 : update: removing Unstoppable.mp3
+Mar 28 13:59 : update: removing Worth Nothing.mp3
+Mar 28 13:59 : update: removing Waka Waka.mp3
+Mar 28 13:59 : update: removing Violin.mp3
+Mar 28 13:59 : update: removing Tu Aake Dekh Le.mp3
+Mar 28 13:59 : update: removing Tigini.mp3
+Mar 28 13:59 : update: removing Sore Point.mp3
+Mar 28 13:59 : update: removing PHUL BUTTE SARI.mp3
+Mar 28 13:59 : update: removing Nina O.mp3
+Mar 28 13:59 : update: removing Mood.mp3
+Mar 28 13:59 : update: removing MAYA.mp3
+Mar 28 13:59 : update: removing Maan Meri Jaan.mp3
+Mar 28 13:59 : update: added /01 aakash junkai ho .mp3
+Mar 28 13:59 : update: added /Aafu sanga afai hare ma.mp3
+Mar 28 13:59 : player: played "Aafu sanga afai hare ma.mp3"
+Mar 28 14:10 : player: played "Aafu sanga afai hare ma.mp3"
+Mar 28 14:17 : player: played "Aafu sanga afai hare ma.mp3"
+Mar 28 14:32 : update: removing 01 aakash junkai ho .mp3
+Mar 28 14:32 : update: removing Aafu sanga afai hare ma.mp3
+Mar 28 14:32 : update: added /Bara Bara.mp3
+Mar 28 14:32 : update: added /Its My Life Sri.mp3
+Mar 28 14:32 : update: added /Heat Waves.mp3
+Mar 28 14:32 : update: added /Hey Ram.mp3
+Mar 28 14:32 : update: added /Mood.mp3
+Mar 28 14:32 : update: added /Waka Waka.mp3
+Mar 28 14:32 : update: added /Worth Nothing.mp3
+Mar 28 14:32 : update: added /Billey Elish  Lovely.mp3
+Mar 28 14:32 : update: added /Imagine Dragons  Believer.mp3
+Mar 28 14:32 : update: added /Be kind.mp3
+Mar 28 14:32 : update: added /LEVELUP.mp3
+Mar 28 14:32 : update: added /Violin.mp3
+Mar 28 14:32 : update: added /PHUL BUTTE SARI.mp3
+Mar 28 14:32 : update: added /Selina Gomez  Calm Down.mp3
+Mar 28 14:32 : update: added /Unstoppable.mp3
+Mar 28 14:32 : update: added /SXMPRA  CowBell Warrior.mp3
+Mar 28 14:32 : update: added /XXXTentacion  Hope.mp3
+Mar 28 14:32 : update: added /Daddy Yanky  Con Calma.mp3
+Mar 28 14:32 : update: added /Tigini.mp3
+Mar 28 14:32 : update: added /Daddy Yanky  Dura.mp3
+Mar 28 14:32 : update: added /Jai Shree Ram.mp3
+Mar 28 14:32 : update: added /Go Down Deh.mp3
+Mar 28 14:32 : update: added /Happier.mp3
+Mar 28 14:32 : update: added /Danza Kuduro.mp3
+Mar 28 14:32 : update: added /Sore Point.mp3
+Mar 28 14:32 : update: added /Locked Away.mp3
+Mar 28 14:32 : update: added /Maan Meri Jaan.mp3
+Mar 28 14:32 : update: added /555  Budi.mp3
+Mar 28 14:32 : update: added /Ruth_B  Dandelions.mp3
+Mar 28 14:32 : update: added /Nina O.mp3
+Mar 28 14:32 : update: added /Tu Aake Dekh Le.mp3
+Mar 28 14:32 : update: added /Sia  Cheap Thrills.mp3
+Mar 28 14:32 : update: added /MAYA.mp3
+Mar 28 14:32 : update: added /Kosandra.mp3
+Mar 28 14:32 : update: added /GoA Shum.mp3
+Mar 28 14:35 : update: removing Maan Meri Jaan.mp3
+Mar 28 14:35 : update: removing Tu Aake Dekh Le.mp3
+Mar 28 14:35 : update: added /King  Tu Aake Dekh Le.mp3
+Mar 28 14:35 : update: added /King  Maan Meri Jaan.mp3
+Mar 28 14:36 : update: updating /Bara Bara.mp3
+Mar 28 14:36 : update: updating /Its My Life Sri.mp3
+Mar 28 14:36 : update: updating /Heat Waves.mp3
+Mar 28 14:36 : update: updating /Hey Ram.mp3
+Mar 28 14:36 : update: updating /Mood.mp3
+Mar 28 14:36 : update: updating /Waka Waka.mp3
+Mar 28 14:36 : update: updating /Worth Nothing.mp3
+Mar 28 14:36 : update: updating /Billey Elish  Lovely.mp3
+Mar 28 14:36 : update: updating /Imagine Dragons  Believer.mp3
+Mar 28 14:36 : update: updating /Be kind.mp3
+Mar 28 14:36 : update: updating /LEVELUP.mp3
+Mar 28 14:36 : update: updating /Violin.mp3
+Mar 28 14:36 : update: updating /King  Tu Aake Dekh Le.mp3
+Mar 28 14:36 : update: updating /PHUL BUTTE SARI.mp3
+Mar 28 14:36 : update: updating /Selina Gomez  Calm Down.mp3
+Mar 28 14:36 : update: updating /Unstoppable.mp3
+Mar 28 14:36 : update: updating /SXMPRA  CowBell Warrior.mp3
+Mar 28 14:36 : update: updating /XXXTentacion  Hope.mp3
+Mar 28 14:36 : update: updating /Daddy Yanky  Con Calma.mp3
+Mar 28 14:36 : update: updating /Tigini.mp3
+Mar 28 14:36 : update: updating /King  Maan Meri Jaan.mp3
+Mar 28 14:36 : update: updating /Daddy Yanky  Dura.mp3
+Mar 28 14:36 : update: updating /Jai Shree Ram.mp3
+Mar 28 14:36 : update: updating /Go Down Deh.mp3
+Mar 28 14:36 : update: updating /Happier.mp3
+Mar 28 14:36 : update: updating /Danza Kuduro.mp3
+Mar 28 14:36 : update: updating /Sore Point.mp3
+Mar 28 14:36 : update: updating /Locked Away.mp3
+Mar 28 14:36 : update: updating /555  Budi.mp3
+Mar 28 14:36 : update: updating /Ruth_B  Dandelions.mp3
+Mar 28 14:36 : update: updating /Nina O.mp3
+Mar 28 14:36 : update: updating /Sia  Cheap Thrills.mp3
+Mar 28 14:36 : update: updating /MAYA.mp3
+Mar 28 14:36 : update: updating /Kosandra.mp3
+Mar 28 14:36 : update: updating /GoA Shum.mp3
+Mar 28 14:38 : player: played "XXXTentacion  Hope.mp3"
+Mar 28 14:39 : player: played "SXMPRA  CowBell Warrior.mp3"
+Mar 28 14:40 : update: removing Bara Bara.mp3
+Mar 28 14:40 : update: added /  Bara Bara.mp3
+Mar 28 14:42 : exception: Failed to decode /home/acer/Music/Kosandra.mp3; Failed to open '/home/acer/Music/Kosandra.mp3': No such file or directory
+Mar 28 14:42 : player: played "Bara Bara.mp3"
+Mar 28 14:42 : player: played "Kosandra.mp3"
+Mar 28 14:42 : exception: Failed to decode /home/acer/Music/Kosandra.mp3; Failed to open '/home/acer/Music/Kosandra.mp3': No such file or directory
+Mar 28 14:42 : player: played "Kosandra.mp3"
+Mar 28 14:42 : exception: Failed to decode /home/acer/Music/Nina O.mp3; Failed to open '/home/acer/Music/Nina O.mp3': No such file or directory
+Mar 28 14:42 : exception: Failed to decode /home/acer/Music/Danza Kuduro.mp3; Failed to open '/home/acer/Music/Danza Kuduro.mp3': No such file or directory
+Mar 28 14:42 : player: played "Nina O.mp3"
+Mar 28 14:42 : exception: Failed to decode /home/acer/Music/Danza Kuduro.mp3; Failed to open '/home/acer/Music/Danza Kuduro.mp3': No such file or directory
+Mar 28 14:42 : player: played "Danza Kuduro.mp3"
+Mar 28 14:42 : exception: Failed to decode /home/acer/Music/Jai Shree Ram.mp3; Failed to open '/home/acer/Music/Jai Shree Ram.mp3': No such file or directory
+Mar 28 14:42 : player: played "Jai Shree Ram.mp3"
+Mar 28 14:42 : update: removing Danza Kuduro.mp3
+Mar 28 14:42 : update: removing Be kind.mp3
+Mar 28 14:42 : update: removing Hey Ram.mp3
+Mar 28 14:42 : update: removing Heat Waves.mp3
+Mar 28 14:42 : update: removing Happier.mp3
+Mar 28 14:42 : update: removing GoA Shum.mp3
+Mar 28 14:42 : update: removing Go Down Deh.mp3
+Mar 28 14:42 : update: removing LEVELUP.mp3
+Mar 28 14:42 : update: removing Kosandra.mp3
+Mar 28 14:42 : update: removing Jai Shree Ram.mp3
+Mar 28 14:42 : update: removing Its My Life Sri.mp3
+Mar 28 14:42 : update: removing Nina O.mp3
+Mar 28 14:42 : update: removing Mood.mp3
+Mar 28 14:42 : update: removing MAYA.mp3
+Mar 28 14:42 : update: removing Locked Away.mp3
+Mar 28 14:42 : update: removing Sore Point.mp3
+Mar 28 14:42 : update: removing PHUL BUTTE SARI.mp3
+Mar 28 14:42 : update: removing Tigini.mp3
+Mar 28 14:42 : update: removing Violin.mp3
+Mar 28 14:42 : update: removing Waka Waka.mp3
+Mar 28 14:42 : update: removing Worth Nothing.mp3
+Mar 28 14:42 : update: removing Unstoppable.mp3
+Mar 28 14:42 : update: added /  MAYA.mp3
+Mar 28 14:42 : update: added /  Kosandra.mp3
+Mar 28 14:42 : update: added /  Tigini.mp3
+Mar 28 14:42 : update: added /  Its My Life Sri.mp3
+Mar 28 14:42 : update: added /  Go Down Deh.mp3
+Mar 28 14:42 : update: added /  Happier.mp3
+Mar 28 14:42 : update: added /  Hey Ram.mp3
+Mar 28 14:42 : update: added /Oliver Tree  Worth Nothing.mp3
+Mar 28 14:42 : update: added /  Locked Away.mp3
+Mar 28 14:42 : update: added /  Violin.mp3
+Mar 28 14:42 : update: added /  Nina O.mp3
+Mar 28 14:42 : update: added /  Mood.mp3
+Mar 28 14:42 : update: added /  Jai Shree Ram.mp3
+Mar 28 14:42 : update: added /Jono  LEVELUP.mp3
+Mar 28 14:42 : update: added /  PHUL BUTTE SARI.mp3
+Mar 28 14:42 : update: added /  GoA Shum.mp3
+Mar 28 14:42 : update: added /Shakira  Waka Waka.mp3
+Mar 28 14:42 : update: added /Glass Animals  Heat Waves.mp3
+Mar 28 14:42 : update: added /  Danza Kuduro.mp3
+Mar 28 14:42 : update: added /Sia  Unstoppable.mp3
+Mar 28 14:42 : update: added /  Sore Point.mp3
+Mar 28 14:42 : update: added /  Be kind.mp3
+Mar 28 14:43 : update: updating /  MAYA.mp3
+Mar 28 14:43 : update: updating /  Kosandra.mp3
+Mar 28 14:43 : update: updating /  Tigini.mp3
+Mar 28 14:43 : update: updating /  Its My Life Sri.mp3
+Mar 28 14:43 : update: updating /  Go Down Deh.mp3
+Mar 28 14:43 : update: updating /  Happier.mp3
+Mar 28 14:43 : update: updating /Billey Elish  Lovely.mp3
+Mar 28 14:43 : update: updating /Imagine Dragons  Believer.mp3
+Mar 28 14:43 : update: updating /  Hey Ram.mp3
+Mar 28 14:43 : update: updating /Oliver Tree  Worth Nothing.mp3
+Mar 28 14:43 : update: updating /  Locked Away.mp3
+Mar 28 14:43 : update: updating /  Violin.mp3
+Mar 28 14:43 : update: updating /  Nina O.mp3
+Mar 28 14:43 : update: updating /King  Tu Aake Dekh Le.mp3
+Mar 28 14:43 : update: updating /  Mood.mp3
+Mar 28 14:43 : update: updating /Selina Gomez  Calm Down.mp3
+Mar 28 14:43 : update: updating /SXMPRA  CowBell Warrior.mp3
+Mar 28 14:43 : update: updating /XXXTentacion  Hope.mp3
+Mar 28 14:43 : update: updating /Daddy Yanky  Con Calma.mp3
+Mar 28 14:43 : update: updating /King  Maan Meri Jaan.mp3
+Mar 28 14:43 : update: updating /  Jai Shree Ram.mp3
+Mar 28 14:43 : update: updating /Jono  LEVELUP.mp3
+Mar 28 14:43 : update: updating /Daddy Yanky  Dura.mp3
+Mar 28 14:43 : update: updating /  PHUL BUTTE SARI.mp3
+Mar 28 14:43 : update: updating /  GoA Shum.mp3
+Mar 28 14:43 : update: updating /Shakira  Waka Waka.mp3
+Mar 28 14:43 : update: updating /Glass Animals  Heat Waves.mp3
+Mar 28 14:43 : update: updating /555  Budi.mp3
+Mar 28 14:43 : update: updating /  Danza Kuduro.mp3
+Mar 28 14:43 : update: updating /Ruth_B  Dandelions.mp3
+Mar 28 14:43 : update: updating /Sia  Unstoppable.mp3
+Mar 28 14:43 : update: updating /  Bara Bara.mp3
+Mar 28 14:43 : update: updating /Sia  Cheap Thrills.mp3
+Mar 28 14:43 : update: updating /  Sore Point.mp3
+Mar 28 14:43 : update: updating /  Be kind.mp3
+Mar 28 14:43 : player: played "Worth Nothing.mp3"
+Mar 28 14:44 : update: updating /  MAYA.mp3
+Mar 28 14:44 : update: updating /  Kosandra.mp3
+Mar 28 14:44 : update: updating /  Tigini.mp3
+Mar 28 14:44 : update: updating /  Its My Life Sri.mp3
+Mar 28 14:44 : update: updating /  Go Down Deh.mp3
+Mar 28 14:44 : update: updating /  Happier.mp3
+Mar 28 14:44 : update: updating /Billey Elish  Lovely.mp3
+Mar 28 14:44 : update: updating /Imagine Dragons  Believer.mp3
+Mar 28 14:44 : update: updating /  Hey Ram.mp3
+Mar 28 14:44 : update: updating /Oliver Tree  Worth Nothing.mp3
+Mar 28 14:44 : update: updating /  Locked Away.mp3
+Mar 28 14:44 : update: updating /  Violin.mp3
+Mar 28 14:44 : update: updating /  Nina O.mp3
+Mar 28 14:44 : update: updating /King  Tu Aake Dekh Le.mp3
+Mar 28 14:44 : update: updating /  Mood.mp3
+Mar 28 14:44 : update: updating /Selina Gomez  Calm Down.mp3
+Mar 28 14:44 : update: updating /SXMPRA  CowBell Warrior.mp3
+Mar 28 14:44 : update: updating /XXXTentacion  Hope.mp3
+Mar 28 14:44 : update: updating /Daddy Yanky  Con Calma.mp3
+Mar 28 14:44 : update: updating /King  Maan Meri Jaan.mp3
+Mar 28 14:44 : update: updating /  Jai Shree Ram.mp3
+Mar 28 14:44 : update: updating /Jono  LEVELUP.mp3
+Mar 28 14:44 : update: updating /Daddy Yanky  Dura.mp3
+Mar 28 14:44 : update: updating /  PHUL BUTTE SARI.mp3
+Mar 28 14:44 : update: updating /  GoA Shum.mp3
+Mar 28 14:44 : update: updating /Shakira  Waka Waka.mp3
+Mar 28 14:44 : update: updating /Glass Animals  Heat Waves.mp3
+Mar 28 14:44 : update: updating /555  Budi.mp3
+Mar 28 14:44 : update: updating /  Danza Kuduro.mp3
+Mar 28 14:44 : update: updating /Ruth_B  Dandelions.mp3
+Mar 28 14:44 : update: updating /Sia  Unstoppable.mp3
+Mar 28 14:44 : update: updating /  Bara Bara.mp3
+Mar 28 14:44 : update: updating /Sia  Cheap Thrills.mp3
+Mar 28 14:44 : update: updating /  Sore Point.mp3
+Mar 28 14:44 : update: updating /  Be kind.mp3
+Mar 28 14:44 : exception: Bad song index
+Mar 28 14:44 : exception: Bad song index
+Mar 28 14:47 : player: played "Imagine Dragons  Believer.mp3"
+Mar 28 14:50 : player: played "King  Maan Meri Jaan.mp3"
+Mar 28 19:01 : config: option 'device' on line 15 was not recognized
+Mar 28 19:05 : exception: Bad song index
+Mar 28 19:05 : exception: Bad song index
+Mar 28 19:06 : player: played "SXMPRA  CowBell Warrior.mp3"
