@@ -36,9 +36,11 @@ cursor:
     shape: Block
 live_config_reload: true
 
-  # shell:
-  #   program: /bin/fish
+shell:
+   program: /bin/zsh
   #   args:
   #       - -l
   #       - -c
   #       - "tmux -u attach || tmux "
+key_bindings:
+  - { key: Return, mods: Alt|Shift, action: SpawnNewInstance }
