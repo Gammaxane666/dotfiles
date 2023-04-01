@@ -1,6 +1,10 @@
 #+title: Rofi Application Launcher Config File written in Org Mode
 #+property: header-args :tangle config.rasi
 
+* Contents :toc:
+- [[#basic-config][Basic Config]]
+- [[#background-and-other-elements][Background And Other elements]]
+
 * Basic Config
 #+begin_src conf
 configuration {
