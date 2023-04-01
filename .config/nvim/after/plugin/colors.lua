@@ -8,5 +8,3 @@ function ColorMyPencil(color)
 end
 
 ColorMyPencil()
-
-require("colorizer").setup{  }

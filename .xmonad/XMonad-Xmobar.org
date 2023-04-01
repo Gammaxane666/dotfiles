@@ -163,14 +163,11 @@ myLogHook = return ()
 myStartupHook = do
   setDefaultCursor xC_left_ptr
   spawn     " sxhkd -m -1 -c ~/.xmonad/sxhkd/sxhkdrc"
-  spawnOnce "sleep 10 && /usr/bin/emacs --daemon"
-  spawnOnce "picom --vsync"
-  spawnOnce "sleep 10 dunst"
+  spawnOnce "/usr/bin/emacs --daemon"
   spawnOnce "mpd"
   spawnOnce "~/.fehbg"
   spawnOnce "nm-applet"
   spawnOnce "volumeicon &"
-  --spawnOnce "xinput set-prop SynPS/2 Synaptics TouchPad libinput Tapping Enabled 1"
   spawnOnce "trayer --edge top --tint 0x282c34 --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true  --expand true --transparent true --alpha 0 --height 24"
 #+end_src
 

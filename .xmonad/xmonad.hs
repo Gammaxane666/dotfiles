@@ -14,8 +14,6 @@ import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig ( additionalKeysP )
 import XMonad.Util.NamedScratchpad
 
-import Colors.DoomOne
-
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
@@ -32,7 +30,7 @@ myNormalBorderColor   = "#1B1D1E"
 
 myModMask       = mod1Mask
 
-myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 "]
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8"]
 
 myTerminal :: String
 myTerminal = "alacritty"
@@ -103,6 +101,7 @@ myStartupHook = do
   setDefaultCursor xC_left_ptr
   spawn     "~/.xmonad/polybar/launch.sh"
   spawnOnce "mpd"
+  spawnOnce "/usr/bin/emacs --deamon &"
   spawnOnce "~/.fehbg"
   spawnOnce "nm-applet"
 
