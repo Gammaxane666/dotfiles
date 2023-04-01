@@ -1,5 +1,4 @@
 #+title: Rofi Application Launcher Config File written in Org Mode
-#+property: header-args :tangle config.rasi
 
 * Contents :toc:
 - [[#basic-config][Basic Config]]
