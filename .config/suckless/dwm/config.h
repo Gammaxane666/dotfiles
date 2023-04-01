@@ -71,12 +71,9 @@ static const Layout layouts[] = {
 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-static char dmenumon[2] = "0";
-static const char *dmenucmd[] = { "rofi", "-show", "drun"};
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
-	{ ControlMask,                  XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_h,      focusstack,     {.i = +1 } },

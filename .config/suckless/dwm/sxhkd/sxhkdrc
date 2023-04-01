@@ -1,3 +1,6 @@
+ctrl + @space
+	rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
+
 alt + b
     qutebrowser
 
@@ -5,13 +8,13 @@ alt + slash ; {l,m,c}
     {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q, $HOME/.config/suckless/dmenu/scripts/dm-confedit}
 
 ctrl + shift + m
-    ~/.local/bin/DunstVol mute
+    DunstVol mute
 
 ctrl + shift + Up
-    ~/.local/bin/DunstVol up
+    DunstVol up
 
 ctrl + shift + Down
-    ~/.local/bin/DunstVol down
+    DunstVol down
 
 alt + shift + m
         amixer set Capture toggle
@@ -23,10 +26,10 @@ alt + shift + Down
         amixer set Capture 10%- unmute
 
 ctrl + shift + Right
-   ~/.local/bin/Brightness up 
+   Brightness up 
 
 ctrl + shift + Left
-   ~/.local/bin/Brightness down 
+   Brightness down 
 
 Print
     scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100

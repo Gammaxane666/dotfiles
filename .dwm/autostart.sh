@@ -13,5 +13,3 @@ nm-applet &
 killall sxhkd
 while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; done
 sxhkd -m -1 -c ~/.config/suckless/dwm/sxhkd/sxhkdrc
-
-exec mpd &

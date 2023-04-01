@@ -82,12 +82,6 @@ myKeys = [
 
  ,("M-S-h", sendMessage Shrink)
  ,("M-S-t", sendMessage Expand)
- ,("M-S-n", refresh )
-
- --,("M-l", spawn "tmux select-pane -R")
- ,("M-l", spawn "tmux select-pane -L")
- ,("M-k", spawn "tmux select-pane -U")
- --,("M-j", spawn "tmux select-pane -D")
  ]
 
 myLayout = avoidStruts (tiled) ||| Full
@@ -107,11 +101,9 @@ myManageHook = composeAll
 
 myStartupHook = do
   setDefaultCursor xC_left_ptr
-  spawn     " sxhkd -m -1 -c ~/.xmonad/sxhkd/sxhkdrc"
+  -- spawn     " sxhkd -m -1 -c ~/.xmonad/sxhkd/sxhkdrc"
   spawn     "~/.xmonad/polybar/launch.sh"
-  spawnOnce "picom --vsync"
-  --spawnOnce "sleep 10 && dunst"
-  -- spawnOnce "mpd"
+  spawnOnce "mpd"
   spawnOnce "~/.fehbg"
   spawnOnce "nm-applet"
 
