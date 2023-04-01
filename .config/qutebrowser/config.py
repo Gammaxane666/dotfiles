@@ -45,9 +45,9 @@ c.tabs.show = 'multiple'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
-c.url.default_page = 'https://searxng.nicfab.eu/searxng/search'
+c.url.default_page = 'https://paulgo.io/'
 
-c.url.searchengines = {'DEFAULT': 'http://searxng.nicfab.eu/searxng/search?q={}&language=en-US&time_range=&safesearch=2&categories=general'}
+c.url.searchengines = {'DEFAULT': 'https://paulgo.io/search?q={}&language=en-US&time_range=&safesearch=1&categories=general'}
 
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
@@ -403,7 +403,7 @@ c.fonts.prompts = '11pt "JetBrainsMono Nerd Font"'
 c.fonts.statusbar = '11pt "JetBrainsMono Nerd Font"'
 
 c.auto_save.session = False
-c.url.start_pages = ["https://searxng.nicfab.eu/searxng/search"] 
+c.url.start_pages = ["https://paulgo.io/"] 
 
 # Bindings for normal mode
 config.bind('t', 'set-cmd-text -s :open -t')
