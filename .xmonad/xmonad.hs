@@ -101,7 +101,6 @@ myManageHook = composeAll
 
 myStartupHook = do
   setDefaultCursor xC_left_ptr
-  -- spawn     " sxhkd -m -1 -c ~/.xmonad/sxhkd/sxhkdrc"
   spawn     "~/.xmonad/polybar/launch.sh"
   spawnOnce "mpd"
   spawnOnce "~/.fehbg"
