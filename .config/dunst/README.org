@@ -1,3 +1,18 @@
+#+title: Dunst (Notification Deamon) config
+#+property: header-args :tangle dunstrc
+
+* Contents :toc:
+- [[#position-and-progress-bar][Position and progress bar]]
+- [[#icon-and-font][Icon and Font]]
+- [[#alignment][Alignment]]
+- [[#mouse-actions][Mouse actions]]
+- [[#urgency][Urgency]]
+  - [[#low][Low]]
+  - [[#normal][Normal]]
+  - [[#critical][Critical]]
+
+* Position and progress bar
+#+begin_src conf
 [global]
     monitor = 0
     follow = mouse
@@ -10,7 +25,10 @@
     progress_bar_max_width = 400
     indicate_hidden = yes
     shrink = no
+#+end_src
 
+* Icon and Font
+#+begin_src conf
     separator_height = 2
     padding = 15
     horizontal_padding = 15
@@ -21,7 +39,10 @@
     sort = yes
     idle_threshold = 120
     font = JetBrains Mono Nerd Font Medium 10
+#+end_src
 
+* Alignment
+#+begin_src conf
     line_height = 0
     markup = full
     format = "<span weight='bold'>%s</span>\n%b"
@@ -46,24 +67,36 @@
     ignore_dbusclose = false
     force_xwayland = false
     force_xinerama = false
+#+end_src
 
+* Mouse actions
+#+begin_src conf
     mouse_left_click = do_action, close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
+#+end_src
 
+* Urgency
+** Low
+#+begin_src conf
 [urgency_low]
     background = "#181825AA"
     foreground = "#CDD6F4"
     timeout = 5
-
+#+end_src
+** Normal
+#+begin_src conf
 [urgency_normal]
     background = "#181825AA"
     foreground = "#CDD6F4"
     timeout = 5
-
+#+end_src
+** Critical
+#+begin_src conf
 [urgency_critical]
     background = "#181825AA"
     foreground = "#fb4934"
     frame_color = "#fb4934"
     timeout = -1
     format = "<b>%s</b>\n%b"
+#+end_src
