@@ -101,6 +101,7 @@ myStartupHook = do
   setDefaultCursor xC_left_ptr
   spawn     "~/.xmonad/polybar/launch.sh"
   spawnOnce "~/.fehbg"
+  spawnOnce "emacs --daemon &"
   spawnOnce "picom &"
   spawnOnce "nm-applet &"
 

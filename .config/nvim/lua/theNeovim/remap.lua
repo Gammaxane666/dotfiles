@@ -1,8 +1,8 @@
 local opts = {silent = true}
 
 --Increment/Decrement
---vim.keymap.set('n', '+', '<C-a>')
---vim.keymap.set('n', '-', '<C-x>')
+--keymap.set('n', '+', '<C-a>')
+--keymap.set('n', '-', '<C-x>')
 
 --Finding file
 vim.keymap.set('n', '<leader>f', ':find ')
@@ -12,10 +12,10 @@ vim.keymap.set('n', ',htm', ':-1read $HOME/.vi/snippets/.skeleton.htm<CR> 6jvit'
 vim.keymap.set('n', ',cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 5jO')
 
 --Delete word backward
---vim.keymap.set('n', 'dw', 'vb"_d')
+--keymap.set('n', 'dw', 'vb"_d')
 
 --Select all
---vim.keymap.set('n', '<C-a>', 'gg<S-v>G', opts)
+--keymap.set('n', '<C-a>', 'gg<S-v>G', opts)
 
 --Pasting without copying
 vim.keymap.set("x", "<leader>p", [["_dP]])
@@ -34,8 +34,8 @@ vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv")
 
 --Buffer
 vim.keymap.set('n', '<leader>bk', ':bw<Return>', opts)
---vim.keymap.set("n", "<leader>bp", ":bprevious<Return>",{silent = true} )
---vim.keymap.set("n", "<leader>bi", ":ls<Return>", {silent = true})
+--keymap.set("n", "<leader>bp", ":bprevious<Return>",{silent = true} )
+--keymap.set("n", "<leader>bi", ":ls<Return>", {silent = true})
 --
 vim.keymap.set('n', '<leader>vv', ':Ex<Return>', opts)
 

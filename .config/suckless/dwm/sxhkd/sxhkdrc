@@ -1,6 +1,9 @@
 ctrl + @space
 	rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
 
+ctrl + shift + e
+    emacsclient -c
+
 alt + b
     qutebrowser
 
@@ -26,10 +29,10 @@ alt + shift + Down
         amixer set Capture 10%- unmute
 
 ctrl + shift + Right
-   Brightness up 
+   Brightness up
 
 ctrl + shift + Left
-   Brightness down 
+   Brightness down
 
 Print
     scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100

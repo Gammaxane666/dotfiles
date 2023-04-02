@@ -7,8 +7,7 @@
 - [[#plugins][Plugins]]
 
 * General Config
-#+BEGIN_SRC lua :tangle base.lua
-local vim = vim
+#+begin_src lua :tangle base.lua
 vim.cmd('autocmd!')
 
 vim.g.mapleader = ' '
@@ -36,31 +35,29 @@ vim.opt.path:append{'**'}
 
 vim.opt.guicursor = ""
 vim.opt.termguicolors = true
-vim.opt.cursorline = true
-vim.opt.updatetime = 30
+vim.opt.cursorline = false
+vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
---vim.o.t_Co = 256
---vim.o.t_ut = true
 vim.wo.wrap = false
+vim.opt.signcolumn = "yes"
 
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=10}')
-#+END_SRC
+#+end_src
 
 * KeyBindings
-#+BEGIN_SRC lua :tangle remap.lua
-local keymap = vim.keymap
-local opts = { noremap = true, silent = true}
+#+begin_src lua :tangle remap.lua
+local opts = {silent = true}
 
 --Increment/Decrement
 --keymap.set('n', '+', '<C-a>')
 --keymap.set('n', '-', '<C-x>')
 
 --Finding file
-keymap.set('n', '<leader>f', ':find ')
+vim.keymap.set('n', '<leader>f', ':find ')
 
 --Snippets
-keymap.set('n', ',htm', ':-1read $HOME/.vi/snippets/.skeleton.htm<CR> 6jvit')
-keymap.set('n', ',cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 5jO')
+vim.keymap.set('n', ',htm', ':-1read $HOME/.vi/snippets/.skeleton.htm<CR> 6jvit')
+vim.keymap.set('n', ',cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 5jO')
 
 --Delete word backward
 --keymap.set('n', 'dw', 'vb"_d')
@@ -69,45 +66,45 @@ keymap.set('n', ',cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 5jO')
 --keymap.set('n', '<C-a>', 'gg<S-v>G', opts)
 
 --Pasting without copying
-keymap.set("x", "<leader>p", "\"_dp")
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
 --Do not yank with "x"
-keymap.set("n", "x", '"_x')
+vim.keymap.set("n", "x", '"_x')
 
 --Do not yank with "s"
-keymap.set("n", "s", '"_s')
+vim.keymap.set("n", "s", '"_s')
 
-keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "J", "mzJ`z")
 
 --Moving highlighted block
-keymap.set('v', "J", ":m '>+1<CR>gv=gv")
-keymap.set('v', "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', "K", ":m '<-2<CR>gv=gv")
 
 --Buffer
-keymap.set('n', '<leader>bk', ':bw<Return>', {silent = true})
+vim.keymap.set('n', '<leader>bk', ':bw<Return>', opts)
 --keymap.set("n", "<leader>bp", ":bprevious<Return>",{silent = true} )
 --keymap.set("n", "<leader>bi", ":ls<Return>", {silent = true})
 --
-keymap.set('n', '<leader>vv', ':Ex<Return>', opts)
+vim.keymap.set('n', '<leader>vv', ':Ex<Return>', opts)
 
 --Split
-keymap.set('n', '<leader>ss', ':split<Return><C-w>w', opts)
-keymap.set('n', '<leader>sv', ':vsplit<Return><C-w>w', opts)
+vim.keymap.set('n', '<leader>ss', ':split<Return><C-w>w', opts)
+vim.keymap.set('n', '<leader>sv', ':vsplit<Return><C-w>w', opts)
 
 --Navigation
-keymap.set('n', '<leader>h', '<C-w>h')
-keymap.set('n', '<leader>j', '<C-w>j')
-keymap.set('n', '<leader>k', '<C-w>k')
-keymap.set('n', '<leader>l', '<C-w>l')
+vim.keymap.set('n', '<leader>h', '<C-w>h')
+vim.keymap.set('n', '<leader>j', '<C-w>j')
+vim.keymap.set('n', '<leader>k', '<C-w>k')
+vim.keymap.set('n', '<leader>l', '<C-w>l')
 
-keymap.set('n', '<C-d>', '<C-d>zz')
-keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-#+END_SRC
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+#+end_src
 
 * Plugins
-#+BEGIN_SRC lua :tangle plugins.lua
+#+begin_src lua :tangle plugins.lua
 local status_ok , packer = pcall(require, "packer")
 if not status_ok then
 	return
@@ -163,4 +160,4 @@ require('packer').startup(function(use)
         },
     }
 end)
-#+END_SRC
+#+end_src
