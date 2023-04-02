@@ -101,7 +101,8 @@ myStartupHook = do
   setDefaultCursor xC_left_ptr
   spawn     "~/.xmonad/polybar/launch.sh"
   spawnOnce "~/.fehbg"
-  spawnOnce "nm-applet"
+  spawnOnce "picom &"
+  spawnOnce "nm-applet &"
 
 main = do
     xmonad $ docks .ewmh $ fullscreenSupport $ def {
