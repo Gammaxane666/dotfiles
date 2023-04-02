@@ -100,8 +100,6 @@ myManageHook = composeAll
 myStartupHook = do
   setDefaultCursor xC_left_ptr
   spawn     "~/.xmonad/polybar/launch.sh"
-  spawnOnce "mpd"
-  spawnOnce "/usr/bin/emacs --deamon &"
   spawnOnce "~/.fehbg"
   spawnOnce "nm-applet"
 

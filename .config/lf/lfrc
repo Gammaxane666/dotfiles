@@ -8,6 +8,8 @@ cmd open &{{
     esac
 }}
 
+map o open
+
 cmd ex ${{
     set -f
     case $f in
@@ -19,5 +21,3 @@ cmd ex ${{
         *.7z) 7z x $f;;
     esac
 }}
-
-map o open

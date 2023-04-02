@@ -1,10 +1,4 @@
-local vim = vim
-vim.cmd('autocmd!')
-
 vim.g.mapleader = ' '
-vim.g.netrw_banner=0
-vim.g.netrw_altv=1
-vim.g.netrw_liststyle=0
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -26,11 +20,8 @@ vim.opt.path:append{'**'}
 
 vim.opt.guicursor = ""
 vim.opt.termguicolors = true
-vim.opt.cursorline = true
-vim.opt.updatetime = 30
+vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
---vim.o.t_Co = 256
---vim.o.t_ut = true
 vim.wo.wrap = false
 
-vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=10}')
+vim.opt.signcolumn = "yes"
