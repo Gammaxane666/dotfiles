@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ~/.fehbg &
+picom &
 
 killall slstatus
 while pgrep -u $UID -x slstatus >/dev/null; do sleep 1; done
