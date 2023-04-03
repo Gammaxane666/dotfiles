@@ -1,3 +1,9 @@
+#+title: Modules used in XMonad polybar
+#+property: header-args :tangle modules.ini
+
+* XMonad Workspace
+ Before I was using xmonad-log package to have workspace name shown in polybar but, as it was complex and had a lot of code so instead I found a new method, just use EwmhDesktops package builtin XMonad and done.
+ #+begin_src conf
 [module/xmonad]
 type = internal/xworkspaces
 pin-workspaces = false
@@ -29,7 +35,11 @@ label-occupied-padding = 1
 label-empty = ""
 label-empty-background = ${colors.background}
 label-empty-foreground = ${colors.foreground}
+ #+end_src
 
+* Power Menu
+This is the little button at the top right corner which when clicked open rofi and has multiple options to select, by the way it uses dmenu-scripts to do so just done with the help of rofi.
+#+begin_src conf
 [module/session]
 type = custom/text
 
@@ -38,7 +48,11 @@ content = %{T4}%{T- }
 content-background = ${colors.lightbg2}
 content-foreground = ${colors.foreground}
 content-padding = 1
+#+end_src
 
+* CPU Usage
+As the name suggests this shows how much cpu is being used.
+#+begin_src conf
 [module/cpu]
 type = internal/cpu
 interval = 1
@@ -53,7 +67,11 @@ label-font = 3
 format = <label>
 format-padding = 0
 label = %{T1} %percentage:1%% %{T-}
+#+end_src
 
+* Date
+This module shows the current time by default but when clicked it shows date, month, day etc.
+#+begin_src conf
 [module/date]
 type = internal/date
 interval = 5
@@ -69,7 +87,11 @@ format-background = ${colors.lightbg2}
 format-padding = 0
 format-prefix-padding = 1
 label =%{T1} %time% %{T-}
+#+end_src
 
+* RAM Usage
+This module how much ram is in use in MB, if you want you can make it to show it in GB also just use `gb_used` instead of `mb_used`.
+#+begin_src conf
 [module/memory]
 type = internal/memory
 interval = 1
@@ -82,7 +104,11 @@ format-foreground = ${colors.aqua}
 format-background = ${colors.lightbg2}
 format-padding = 0
 format-prefix-padding = 1
+#+end_src
 
+* Volume
+This module uses pulseaudio to show volume percentage, though I currently don't use it but in case of emergency.
+#+begin_src conf
 [module/volume]
 type = internal/pulseaudio
 label-volume = %{T1} %percentage%% %{T- }
@@ -100,7 +126,11 @@ format-muted-prefix-foreground = ${colors.darkbg}
 format-muted-prefix-background = ${colors.darkgreen}
 format-muted-foreground = ${colors.darkgreen}
 format-muted-background = ${colors.lightbg2}
+#+end_src
 
+* Custom Seprator
+Yes you can have it.
+#+begin_src conf
 [module/sep]
 type = custom/text
 content = -
@@ -109,7 +139,11 @@ content-foreground = ${colors.foreground}
 content-background =  ${colors.background}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
+#+end_src
 
+* Uptime
+Shows how long your computer has been cooking.
+#+begin_src conf
 [module/uptime]
 type = custom/script
 exec = uptime -p | sed 's/up //' | sed 's/\ hours\?,\?/h/' | sed 's/\ minutes\?/m/'
@@ -123,7 +157,11 @@ format-background = ${colors.lightbg2}
 format-foreground = ${colors.green}
 format-prefix-foreground = ${colors.darkbg}
 format-prefix-background = ${colors.darkgreen}
+#+end_src
 
+* Music
+Uses `mpd` script in `.local/bin/` to show title of currently playing song.
+#+begin_src conf
 [module/music]
 type = custom/script
 interval = 1
@@ -137,7 +175,11 @@ format-background = ${colors.lightbg2}
 exec = bash ~/.local/bin/mpd
 tail = true
 label= %{T1} %output% %{T-}
+#+end_src
 
+* Battery
+This took the most time.
+#+begin_src conf
 [module/battery]
 type = internal/battery
 full-at = 100
@@ -176,7 +218,11 @@ label-charging =  %{T1} %percentage%%(+) %{T- }
 label-discharging = %{T1} %percentage%%(-) %{T- }
 label-full = %{T1} %percentage%%(o) %{T- }
 label-low = BATTERY LOW
+#+end_src
 
+* Keyboard Indicator
+Show the varint of keyboard in use.
+#+begin_src conf
 [module/keyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
@@ -190,3 +236,4 @@ format-prefix-foreground = ${colors.darkbg}
 format-prefix-background = ${colors.red}
 label-layout-background = ${colors.lightbg2}
 label-layout-foreground = ${colors.red}
+#+end_src

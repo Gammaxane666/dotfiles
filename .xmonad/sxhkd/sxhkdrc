@@ -1,11 +1,11 @@
 ctrl + @space
-	rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
+    rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
 
 alt + b
     qutebrowser
 
-ctrl + shift + e 
-    emacsclient -c 
+ctrl + shift + e
+    emacsclient -c
 
 alt + slash ; {l,m,c}
     {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q, $HOME/.config/suckless/dmenu/scripts/dm-confedit}

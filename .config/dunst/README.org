@@ -25,6 +25,7 @@
     progress_bar_max_width = 400
     indicate_hidden = yes
     shrink = no
+    corner_radius = 9
 #+end_src
 
 * Icon and Font
@@ -80,21 +81,21 @@
 ** Low
 #+begin_src conf
 [urgency_low]
-    background = "#181825AA"
+    background = "#181825"
     foreground = "#CDD6F4"
     timeout = 5
 #+end_src
 ** Normal
 #+begin_src conf
 [urgency_normal]
-    background = "#181825AA"
+    background = "#181825"
     foreground = "#CDD6F4"
     timeout = 5
 #+end_src
 ** Critical
 #+begin_src conf
 [urgency_critical]
-    background = "#181825AA"
+    background = "#181825"
     foreground = "#fb4934"
     frame_color = "#fb4934"
     timeout = -1
