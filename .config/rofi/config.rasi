@@ -1,5 +1,5 @@
 configuration {
-  display-drun: "Applications:";
+  display-drun: " ";
   display-window: "Windows:";
   drun-display-format: "{icon}{name}";
   font: "JetBrainsMono Nerd Font Medium 10";
@@ -66,7 +66,7 @@ inputbar {
 listview {
   background-color: @bg;
   columns: 1;
-  lines: 8;
+  lines: 7;
 }
 
 mainbox {
