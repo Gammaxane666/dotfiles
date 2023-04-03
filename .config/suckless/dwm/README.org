@@ -1,21 +1,43 @@
+#+title: Dwm - dynamic window manager
+#+property: header-args :tangle config.h
+
+Dwm is an extremely fast, small, and dynamic window manager for X.
+Requirements
+In order to build dwm you need the Xlib header files.
+
+* Border & Gap size
+border pixel of windows,gaps between windows,snap pixel
+#+begin_src c
 static const unsigned int borderpx  = 2;
 static const unsigned int gappx     = 8;
 static const unsigned int snap      = 32;
+#+end_src
 
+* System Tray
+#+begin_src c
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
+#+end_src
 
+* Bar position & padding
+#+begin_src c
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 4;        /* vertical padding for statusbar */
+#+end_src
 
+* Fonts
+#+begin_src c
 static const char *fonts[]          = {"JetBrainsMono Nerd Font:pixelsize=14","Font Awesome 6 Free Solid:pixelsize=15"};
 static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=12";
+#+end_src
 
+* Colors
+#+begin_src c
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -27,7 +49,10 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_blue,  col_cyan  },
 };
+#+end_src
 
+* ScratchPads
+#+begin_src c
 typedef struct {
 	const char *name;
 	const void *cmd;
@@ -39,10 +64,16 @@ static Sp scratchpads[] = {
 	{"ncmpcpp",      spcmd1},
 	{"lf",           spcmd2},
 };
+#+end_src
 
+* Tags AKA Workspaces
+#+begin_src c
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+#+end_src
 
+* Window Rules
+#+begin_src c
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -54,7 +85,10 @@ static const Rule rules[] = {
 	{ NULL,		  NULL,	        "ncmpcpp",  SPTAG(0),		1,			 -1 },
 	{ NULL,		  NULL,	        "lf",		SPTAG(1),		1,			 -1 },
 };
+#+end_src
 
+* Layouts
+#+begin_src c
 /* layout(s) */
 static const float mfact     = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
@@ -66,7 +100,10 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "><>",      NULL }
 };
+#+end_src
 
+* KeyBindings
+#+begin_src c
 /* key definitions */
 #define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
@@ -118,7 +155,10 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_q,      quit,           {1} },
 };
+#+end_src
 
+* Mouse Bindings
+#+begin_src c
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
@@ -133,3 +173,4 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+#+end_src
