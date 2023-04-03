@@ -221,7 +221,7 @@ label-low = BATTERY LOW
 #+end_src
 
 * Keyboard Indicator
-Show the varint of keyboard in use.
+Show the variant of keyboard in use.
 #+begin_src conf
 [module/keyboard]
 type = internal/xkeyboard
