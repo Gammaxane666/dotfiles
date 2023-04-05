@@ -1,21 +1,17 @@
 import XMonad
 import Data.Monoid
 import System.Exit
+
+import XMonad.Layout.Fullscreen ( fullscreenSupportBorder )
+import XMonad.Hooks.ManageDocks ( avoidStruts, docks )
+import XMonad.Layout.Spacing ( spacingWithEdge )
+import XMonad.Hooks.EwmhDesktops ( ewmh )
 import XMonad.Util.SpawnOnce
-import XMonad.Util.Run
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Fullscreen
-import Data.Maybe ( fromJust )
-import XMonad.Util.Cursor ( setDefaultCursor )
-import XMonad.Hooks.ManageHelpers ( doCenterFloat )
-import XMonad.Hooks.DynamicLog
-import XMonad.Layout.Spacing
-import XMonad.Util.EZConfig ( additionalKeysP )
-import XMonad.Util.NamedScratchpad
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
+
+myTerminal      = "alacritty"
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False
@@ -25,89 +21,122 @@ myClickJustFocuses = True
 
 myBorderWidth   = 1
 
+myModMask       = mod1Mask
+
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+
 myFocusedBorderColor  = "#fe8019"
 myNormalBorderColor   = "#1B1D1E"
 
-myModMask       = mod1Mask
+myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
-myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8"]
+    -- launch a terminal
+    [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
 
-myTerminal :: String
-myTerminal = "alacritty"
+    -- launch rofi
+    , ((controlMask,xK_space), spawn "rofi -terminal alacritty -show drun -icon-theme 'Papirus' -show-icons")
 
-myScratchPads :: [NamedScratchpad]
-myScratchPads = [ NS "ncmpcpp" spawnNcmpcpp findNcmpcpp manageNcmpcpp
-                , NS "lf" spawnLf findLf manageLf
-                , NS "vi" spawnVi findVi manageVi
-                ]
+    -- launch qutebrowser
+    , ((modm,xK_b), spawn "qutebrowser")
+
+    -- Brightness
+    , ((controlMask.|.shiftMask,xK_Right), spawn "Brightness up")
+    , ((controlMask.|.shiftMask,xK_Left),  spawn "Brightness down")
+
+    -- Volume
+    , ((controlMask.|.shiftMask,xK_Up),   spawn "DunstVol up")
+    , ((controlMask.|.shiftMask,xK_Down), spawn "DunstVol down")
+
+    -- Dmenu Scripts
+    , ((modm.|.shiftMask, xK_l), spawn"$HOME/.config/suckless/dmenu/scripts/dm-logout")
+    , ((modm.|.shiftMask, xK_c), spawn"$HOME/.config/suckless/dmenu/scripts/dm-confedit")
+
+    -- Toggle the polybar bar
+     , ((modm.|.shiftMask, xK_b), spawn "polybar-msg cmd toggle ")
+
+    -- close focused window
+    , ((modm , xK_c), kill)
+
+     -- Rotate through the available layout algorithms
+    , ((modm,xK_space ), sendMessage NextLayout)
+
+    --  Reset the layouts on the current workspace to default
+    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+
+    -- Resize viewed windows to the correct size
+    , ((modm,xK_n), refresh)
+
+    -- Move focus to the next window
+    , ((modm,xK_h), windows W.focusDown)
+
+    -- Swap the focused window and the master window
+    , ((modm .|. shiftMask,xK_Return), windows W.swapMaster)
+
+    -- Swap the focused window with the next window
+    , ((modm .|. shiftMask, xK_j), windows W.swapDown)
+
+    -- Swap the focused window with the previous window
+    , ((modm .|. shiftMask, xK_k), windows W.swapUp)
+
+    -- Shrink the master area
+    , ((modm .|. shiftMask,xK_h), sendMessage Shrink)
+
+    -- Expand the master area
+    , ((modm .|. shiftMask,xK_t), sendMessage Expand)
+
+    -- Push window back into tiling
+    , ((modm,xK_t), withFocused $ windows . W.sink)
+
+    -- Increment the number of windows in the master area
+    , ((modm, xK_comma ), sendMessage (IncMasterN 1))
+
+    -- Deincrement the number of windows in the master area
+    , ((modm, xK_period), sendMessage (IncMasterN (-1)))
+
+    -- Quit xmonad
+    , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
+
+    -- Restart xmonad
+    , ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart")
+
+    ]
+    ++
+    [((m .|. modm, k), windows $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+
+myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+
+    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w))
+    -- , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w))
+    ]
+
+myLayout = avoidStruts(tiled) ||| Full
   where
-    spawnNcmpcpp  = myTerminal ++ " -t ncmpcpp -e ncmpcpp"
-    findNcmpcpp   = title =? "ncmpcpp"
-    manageNcmpcpp = customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.7
-                 w = 0.7
-                 t = 0.15
-                 l = 0.15
-
-    spawnLf  = myTerminal ++ " -t lf -e lf"
-    findLf   = title =? "lf"
-    manageLf = customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.9
-                 w = 0.9
-                 t = 0.95 -h
-                 l = 0.95 -w
-
-    spawnVi    = myTerminal ++ " -t vi -e vi"
-    findVi     = title =? "vi"
-    manageVi   = customFloating $ W.RationalRect l t w h
-               where
-                 h = 0.95
-                 w = 0.987
-                 t = 0.042
-                 l = 0.008
-
-myKeys = [
-  ("M-<Return>", spawn(myTerminal))
- ,("M-e", namedScratchpadAction myScratchPads "lf")
- ,("M-p", namedScratchpadAction myScratchPads "ncmpcpp")
- ,("M-`", namedScratchpadAction myScratchPads "vi")
- ,("M-S-<Return>", windows W.swapMaster)
- ,("M-h", windows W.focusDown)
- ,("M-c", kill)
- ,("M-t", windows W.focusUp)
-
- ,("M-S-h", sendMessage Shrink)
- ,("M-S-t", sendMessage Expand)
- ]
-
-myLayout = avoidStruts (tiled) ||| Full
-  where
-     tiled   = spacingWithEdge 5 $ Tall nmaster delta ratio
+     tiled   = spacingWithEdge 4 $ Tall nmaster delta ratio
      nmaster = 1
      ratio   = 1/2
      delta   = 3/100
 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
-    , className =? "Nm-applet"      --> doCenterFloat
-    , className =? "Gimp"           --> doCenterFloat
+    , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore
-    ]<+> namedScratchpadManageHook myScratchPads
+    , resource  =? "kdesktop"       --> doIgnore ]
+
+myEventHook = mempty
+
+myLogHook = return ()
 
 myStartupHook = do
-  setDefaultCursor xC_left_ptr
   spawn     "~/.xmonad/polybar/launch.sh"
-  spawnOnce "~/.fehbg"
-  spawnOnce "emacs --daemon &"
-  spawnOnce "mpd &"
-  spawnOnce "picom &"
+  spawnOnce "nitrogen --restore &"
+  spawnOnce "picom --vsync &"
   spawnOnce "nm-applet &"
 
-main = do
-    xmonad $ docks .ewmh $ fullscreenSupport $ def {
+main = xmonad $ docks .ewmh $ fullscreenSupportBorder $ def {
+        terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
         borderWidth        = myBorderWidth,
@@ -115,7 +144,11 @@ main = do
         workspaces         = myWorkspaces,
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
+        keys               = myKeys,
+        mouseBindings      = myMouseBindings,
         layoutHook         = myLayout,
         manageHook         = myManageHook,
+        handleEventHook    = myEventHook,
+        logHook            = myLogHook,
         startupHook        = myStartupHook
-    }  `additionalKeysP` myKeys
+  }
