@@ -102,6 +102,7 @@ myStartupHook = do
   spawn     "~/.xmonad/polybar/launch.sh"
   spawnOnce "~/.fehbg"
   spawnOnce "emacs --daemon &"
+  spawnOnce "mpd &"
   spawnOnce "picom &"
   spawnOnce "nm-applet &"
 

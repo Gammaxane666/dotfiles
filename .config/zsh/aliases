@@ -1,4 +1,5 @@
 alias qt='cd ~/.config/qtile/'
+alias genqr='curl qrenco.de/https://'
 alias config='/usr/bin/git --git-dir=$HOME/Stuff/DotFiles --work-tree=$HOME'
 alias xm='cd ~/.xmonad/'
 alias i3='cd ~/.config/i3/'

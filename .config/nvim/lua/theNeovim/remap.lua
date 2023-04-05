@@ -1,4 +1,4 @@
-local opts = {silent = true}
+local opts = { silent = true }
 
 --Increment/Decrement
 --keymap.set('n', '+', '<C-a>')
@@ -8,8 +8,8 @@ local opts = {silent = true}
 vim.keymap.set('n', '<leader>f', ':find ')
 
 --Snippets
-vim.keymap.set('n', ',htm', ':-1read $HOME/.vi/snippets/.skeleton.htm<CR> 6jvit')
-vim.keymap.set('n', ',cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 5jO')
+vim.keymap.set('n', '<leader>htm', ':-1read $HOME/.vi/snippets/.skeleton.htm<CR> 6jvit')
+vim.keymap.set('n', '<leader>cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 5jO')
 
 --Delete word backward
 --keymap.set('n', 'dw', 'vb"_d')
@@ -53,3 +53,4 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)

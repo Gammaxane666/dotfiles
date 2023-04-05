@@ -25,9 +25,16 @@ require('packer').startup(function(use)
         requires = { 'nvim-lua/plenary.nvim' },
     }
 
-    use { 'lifepillar/vim-gruvbox8',
-        opt = true,
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 
+    use { 'lifepillar/vim-gruvbox8',
+        config = function()
+            vim.cmd('colorscheme gruvbox8_hard')
+        end;
+        opt = true,
     }
 
     use { 'norcalli/nvim-colorizer.lua',

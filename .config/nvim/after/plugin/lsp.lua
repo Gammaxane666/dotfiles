@@ -11,14 +11,24 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
-    vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
-    vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    -- vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+    -- vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
 end)
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
-    setup_servers_on_start = true,
-    configure_diagnostics = false,
-    server_capabilities = true
+    sign_icons = {
+        error = '',
+        warn = '',
+        hint = '',
+        info = ''
+    }
 })
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true
+})

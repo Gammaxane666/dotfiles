@@ -2,7 +2,7 @@ ctrl + @space
     rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
 
 alt + b
-    qutebrowser
+    firefox
 
 ctrl + shift + e
     emacsclient -c

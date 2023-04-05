@@ -131,6 +131,12 @@ _G.packer_plugins = {
     path = "/home/acer/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  gruvbox8 = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/home/acer/.local/share/nvim/site/pack/packer/opt/gruvbox8",
+    url = "https://github.com/lifepillar/vim-gruvbox8"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/acer/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -187,12 +193,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/acer/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["vim-gruvbox8"] = {
-    loaded = false,
-    needs_bufread = false,
-    path = "/home/acer/.local/share/nvim/site/pack/packer/opt/vim-gruvbox8",
-    url = "https://github.com/lifepillar/vim-gruvbox8"
   }
 }
 
@@ -200,11 +200,11 @@ time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-cmp ]]
-vim.cmd [[ packadd cmp_luasnip ]]
-vim.cmd [[ packadd cmp-path ]]
-vim.cmd [[ packadd cmp-buffer ]]
-vim.cmd [[ packadd cmp-nvim-lua ]]
 vim.cmd [[ packadd cmp-nvim-lsp ]]
+vim.cmd [[ packadd cmp-nvim-lua ]]
+vim.cmd [[ packadd cmp_luasnip ]]
+vim.cmd [[ packadd cmp-buffer ]]
+vim.cmd [[ packadd cmp-path ]]
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

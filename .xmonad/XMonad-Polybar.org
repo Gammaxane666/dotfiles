@@ -30,7 +30,7 @@
   - [[#applications][Applications]]
   - [[#dm-scripts][DM-Scripts]]
   - [[#audio-bindings][Audio Bindings]]
-  - [[#brightness][Brightness]]
+  - [[#brightnessbrillo][Brightness(Brillo)]]
   - [[#screenshot-scrot][ScreenShot (scrot)]]
   - [[#notification-dunst][Notification (Dunst)]]
   - [[#toggle-polybar][Toggle polybar]]
@@ -169,6 +169,7 @@ myStartupHook = do
   spawn     "~/.xmonad/polybar/launch.sh"
   spawnOnce "~/.fehbg"
   spawnOnce "emacs --daemon &"
+  spawnOnce "mpd &"
   spawnOnce "picom &"
   spawnOnce "nm-applet &"
 #+end_src
@@ -197,6 +198,7 @@ main = do
 screenchange-reload = false
 pseudo-transparency = false
 dpi = 192
+enable-ipc = true
 #+end_src
 
 ** Importing Modules And Colors

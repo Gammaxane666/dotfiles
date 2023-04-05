@@ -19,8 +19,8 @@ vim.o.expandtab = 4
 vim.opt.shiftwidth = 4
 
 vim.opt.swapfile = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vi/undodir"
-vim.opt.undofile = true
+-- vim.opt.undodir = os.getenv("HOME") .. "/.vi/undodir"
+-- vim.opt.undofile = true
 vim.opt.path:append{'**'}
 
 vim.opt.guicursor = ""
@@ -29,6 +29,6 @@ vim.opt.cursorline = false
 vim.opt.updatetime = 50
 vim.opt.scrolloff = 8
 vim.wo.wrap = false
-vim.opt.signcolumn = "yes"
+--vim.opt.signcolumn = "yes"
 
 vim.cmd('au TextYankPost * silent! lua vim.highlight.on_yank() {timeout=10}')
