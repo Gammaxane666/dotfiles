@@ -1,6 +1,0 @@
-#+title: Neovim config
-
-This is my all of my neovim configuration for a better workflow.
-For more neovim stuff visit https://www.youtube.com/@ThePrimeagen/videos
-
-Those who don't know about neovim check this out:- https://www.neovim.io
