@@ -9,7 +9,7 @@ vim.keymap.set('n', '<leader>f', ':find ')
 
 --Snippets
 vim.keymap.set('n', '<leader>htm', ':-1read $HOME/.vi/snippets/.skeleton.htm<CR> 6jvit')
-vim.keymap.set('n', '<leader>cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 5jO')
+vim.keymap.set('n', '<leader>cpp', ':-1read $HOME/.vi/snippets/.skeleton.cpp<CR> 4jO')
 
 --Delete word backward
 --keymap.set('n', 'dw', 'vb"_d')

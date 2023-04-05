@@ -19,8 +19,8 @@ vim.o.expandtab = 4
 vim.opt.shiftwidth = 4
 
 vim.opt.swapfile = false
--- vim.opt.undodir = os.getenv("HOME") .. "/.vi/undodir"
--- vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.vi/undodir"
+vim.opt.undofile = true
 vim.opt.path:append{'**'}
 
 vim.opt.guicursor = ""

@@ -1,21 +1,17 @@
-static const unsigned int borderpx  = 2;
+static const unsigned int borderpx  = 1;
 static const unsigned int gappx     = 8;
 static const unsigned int snap      = 32;
-
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
 static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;        /* 0 means no systray */
-
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int horizpadbar        = 0;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 4;        /* vertical padding for statusbar */
-
-static const char *fonts[]          = {"JetBrainsMono Nerd Font:pixelsize=14","Font Awesome 6 Free Solid:pixelsize=15"};
-static const char dmenufont[]       = "JetBrainsMono Nerd Font:size=12";
-
+static const char *fonts[]          = {"JetBrainsMono Nerd Font:pixelsize=14:antialias=true","Font Awesome:pixelsize=16:antialias=true:autohint=true"};
+static const char dmenufont[]       = "JetBrainsMono Nerd Font:pixelsize=14:antialias=true";
 static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
