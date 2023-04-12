@@ -1,0 +1,106 @@
+#+title: ZShell Configuration And Aliases
+
+* Contents :toc:
+- [[#setting-up-prompt][Setting up Prompt]]
+- [[#history][History]]
+- [[#loading-aliases][Loading Aliases]]
+- [[#auto-completion][Auto-Completion]]
+- [[#keybinding-and-vi-mode][Keybinding and Vi mode]]
+- [[#loading-up-custom-plugins][Loading up custom plugins]]
+- [[#aliases][Aliases]]
+
+* Setting up Prompt
+Setting up nice color for prompt
+#+begin_src shell :tangle .zshrc
+autoload -U colors && colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+setopt autocd
+#+end_src
+
+* History
+Saving a lot of history in custom directory and rejecting duplicates
+#+begin_src shell :tangle .zshrc
+export HISTCONTROL=ignoredups
+
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
+#+end_src
+
+* Loading Aliases
+Loading up aliases from different aliases file
+#+begin_src shell :tangle .zshrc
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases"
+#+end_src
+
+* Auto-Completion
+This block of code add functionality of auto-completion. To use just type and press TAB
+#+begin_src shell :tangle .zshrc
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+# Include hidden files.
+_comp_options+=(globdots)
+#+end_src
+
+* Keybinding and Vi mode
+#+begin_src shell :tangle .zshrc
+bindkey -v
+export KEYTIMEOUT=1
+
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+bindkey ^R history-incremental-search-backward
+bindkey '^j' vi-cmd-mode
+#+end_src
+
+* Loading up custom plugins
+Here it's loading auto-suggestions and syntax-highlighting plugins manually
+#+begin_src shell :tangle .zshrc
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh 2> /dev/null
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh 2> /dev/null
+#+end_src
+
+* Aliases
+All the aliases that I use are stored in different file called aliases in the same directory as of .zshrc
+#+begin_src shell :tangle aliases
+alias qt='cd ~/.config/qtile/'
+alias config='/usr/bin/git --git-dir=$HOME/Stuff/DotFiles --work-tree=$HOME'
+alias xm='cd ~/.xmonad/'
+alias i3='cd ~/.config/i3/'
+alias dm='cd ~/.config/suckless/dwm/'
+alias dmenu_run='dmenu_run -c -p "Apps:" -l 10'
+alias svi='sudoedit'
+alias sl='cd ~/.config/suckless/slstatus/'
+alias stt='cd ~/.config/suckless/st/'
+alias so='source $HOME/.config/fish/config.fish'
+alias ls='exa -l -g --icons'
+alias ll='ls --tree --level=1 -a'
+alias gpsh='config push origin master'
+alias gcmt='config commit'
+alias gad='config add'
+alias pkgs='pacman -Qq | wc -l'
+alias plst='echo -n "Packages installed:- " ; pkgs'
+# alias plst='pacman -Qq | fzf --preview "pacman -Qil {}" --bind "enter:execute(pacman -Qil {} | less)"'
+alias batstatus='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+alias gcln='git clone'
+alias mkdir='mkdir -p'
+alias sync='sudo pacman -Sy'
+alias tls='tmux ls'
+alias update='sudo pacman -Syyu'
+alias tmx='tmux -u attach || tmux'
+alias install='sudo pacman -S'
+# alias ftinst='flatpak install'
+alias remove='sudo pacman -Rns'
+alias rm='rm -r'
+alias pclean='remove $(pacman -Qtdq)'
+alias pinst='paru -S'
+alias clean='sudo pacman -Sc'
+# alias find='sudo pacman -Ss'
+# alias battery='notify-send $("acpi")'
+#+end_src
