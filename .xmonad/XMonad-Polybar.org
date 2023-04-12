@@ -1,0 +1,340 @@
+#+title: XMonad Window Manager (Polybar) config
+#+property: header-args :tangle xmonad.hs
+
+* Contents :toc:
+- [[#xmonad][XMonad]]
+  - [[#imports][Imports]]
+  - [[#focus-with-mouse][Focus With Mouse]]
+  - [[#border-size-and-color][Border Size and Color]]
+  - [[#mod-key][Mod Key]]
+  - [[#workspaces][Workspaces]]
+  - [[#scratchpads][ScratchPads]]
+  - [[#keybindings][Keybindings]]
+  - [[#layouts][Layouts]]
+  - [[#window-rules][Window Rules]]
+  - [[#startup-applications][Startup Applications]]
+  - [[#starting-xmonad-and-other-stuff-main][Starting XMonad and Other Stuff (Main)]]
+- [[#polybar][Polybar]]
+  - [[#global-settings][Global Settings]]
+  - [[#importing-modules-and-colors][Importing Modules And Colors]]
+  - [[#main-xmonad-bar][Main XMonad Bar]]
+  - [[#background-and-foreground-color][Background And Foreground Color]]
+  - [[#line-size][Line size]]
+  - [[#padding-from-left-and-right][Padding from Left And Right]]
+  - [[#gap-between-modules][Gap between Modules]]
+  - [[#different-font-for-icons-and-names][Different font for Icons and Names]]
+  - [[#placement-of-different-modules][Placement of different Modules]]
+  - [[#cursor-while-hover-and-scroll][Cursor while hover And Scroll]]
+  - [[#tray-position-and-size][Tray position and size]]
+- [[#sxhkd-keybindings][Sxhkd (Keybindings)]]
+  - [[#applications][Applications]]
+  - [[#dm-scripts][DM-Scripts]]
+  - [[#audio-bindings][Audio Bindings]]
+  - [[#brightnessbrillo][Brightness(Brillo)]]
+  - [[#screenshot-scrot][ScreenShot (scrot)]]
+  - [[#notification-dunst][Notification (Dunst)]]
+  - [[#toggle-polybar][Toggle polybar]]
+
+* XMonad
+** Imports
+#+begin_src haskell
+import XMonad
+import Data.Monoid
+import System.Exit
+import XMonad.Util.SpawnOnce
+import XMonad.Util.Run
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Fullscreen
+import Data.Maybe ( fromJust )
+import XMonad.Util.Cursor ( setDefaultCursor )
+import XMonad.Hooks.ManageHelpers ( doCenterFloat )
+import XMonad.Hooks.DynamicLog
+import XMonad.Layout.Spacing
+import XMonad.Util.EZConfig ( additionalKeysP )
+import XMonad.Util.NamedScratchpad
+
+import qualified XMonad.StackSet as W
+import qualified Data.Map as M
+#+end_src
+
+** Focus With Mouse
+#+begin_src haskell
+myFocusFollowsMouse :: Bool
+myFocusFollowsMouse = False
+
+myClickJustFocuses :: Bool
+myClickJustFocuses = True
+#+end_src
+
+** Border Size and Color
+#+begin_src haskell
+myBorderWidth   = 1
+
+myFocusedBorderColor  = "#fe8019"
+myNormalBorderColor   = "#1B1D1E" 
+#+end_src
+
+** Mod Key
+#+begin_src haskell
+myModMask       = mod1Mask
+#+end_src
+
+** Workspaces
+#+begin_src haskell
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8"]
+#+end_src
+
+** ScratchPads
+#+begin_src haskell
+myTerminal :: String
+myTerminal = "alacritty"
+
+myScratchPads :: [NamedScratchpad]
+myScratchPads = [ NS "ncmpcpp" spawnNcmpcpp findNcmpcpp manageNcmpcpp
+                , NS "lf" spawnLf findLf manageLf
+                , NS "vi" spawnVi findVi manageVi
+                ]
+  where
+    spawnNcmpcpp  = myTerminal ++ " -t ncmpcpp -e ncmpcpp"
+    findNcmpcpp   = title =? "ncmpcpp"
+    manageNcmpcpp = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.7
+                 w = 0.7
+                 t = 0.15
+                 l = 0.15
+
+    spawnLf  = myTerminal ++ " -t lf -e lf"
+    findLf   = title =? "lf"
+    manageLf = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.9
+                 w = 0.9
+                 t = 0.95 -h
+                 l = 0.95 -w
+
+    spawnVi    = myTerminal ++ " -t vi -e vi"
+    findVi     = title =? "vi"
+    manageVi   = customFloating $ W.RationalRect l t w h
+               where
+                 h = 0.95
+                 w = 0.987
+                 t = 0.042
+                 l = 0.008
+#+end_src
+
+** Keybindings
+#+begin_src haskell
+myKeys = [
+  ("M-<Return>", spawn(myTerminal))
+ ,("M-e", namedScratchpadAction myScratchPads "lf")
+ ,("M-p", namedScratchpadAction myScratchPads "ncmpcpp")
+ ,("M-`", namedScratchpadAction myScratchPads "vi")
+ ,("M-S-<Return>", windows W.swapMaster)
+ ,("M-h", windows W.focusDown)
+ ,("M-c", kill)
+ ,("M-t", windows W.focusUp)
+
+ ,("M-S-h", sendMessage Shrink)
+ ,("M-S-t", sendMessage Expand)
+ ]
+#+end_src
+
+** Layouts
+#+begin_src haskell
+myLayout = avoidStruts (tiled) ||| Full
+  where
+     tiled   = spacingWithEdge 5 $ Tall nmaster delta ratio
+     nmaster = 1
+     ratio   = 1/2
+     delta   = 3/100
+#+end_src
+
+** Window Rules
+#+begin_src haskell
+myManageHook = composeAll
+    [ className =? "MPlayer"        --> doFloat
+    , className =? "Nm-applet"      --> doCenterFloat
+    , className =? "Gimp"           --> doCenterFloat
+    , resource  =? "desktop_window" --> doIgnore
+    , resource  =? "kdesktop"       --> doIgnore
+    ]<+> namedScratchpadManageHook myScratchPads
+#+end_src
+
+** Startup Applications
+#+begin_src haskell
+myStartupHook = do
+  setDefaultCursor xC_left_ptr
+  spawn     "~/.xmonad/polybar/launch.sh"
+  spawnOnce "~/.fehbg"
+  spawnOnce "emacs --daemon &"
+  spawnOnce "mpd &"
+  spawnOnce "picom &"
+  spawnOnce "nm-applet &"
+#+end_src
+
+** Starting XMonad and Other Stuff (Main)
+#+begin_src haskell
+main = do
+    xmonad $ docks .ewmh $ fullscreenSupport $ def {
+        focusFollowsMouse  = myFocusFollowsMouse,
+        clickJustFocuses   = myClickJustFocuses,
+        borderWidth        = myBorderWidth,
+        modMask            = myModMask,
+        workspaces         = myWorkspaces,
+        normalBorderColor  = myNormalBorderColor,
+        focusedBorderColor = myFocusedBorderColor,
+        layoutHook         = myLayout,
+        manageHook         = myManageHook,
+        startupHook        = myStartupHook
+    }  `additionalKeysP` myKeys
+#+end_src
+
+* Polybar
+** Global Settings
+#+begin_src conf :tangle polybar/config.ini
+[settings]
+screenchange-reload = false
+pseudo-transparency = false
+dpi = 192
+enable-ipc = true
+#+end_src
+
+** Importing Modules And Colors
+#+begin_src conf :tangle polybar/config.ini
+include-file = ~/.xmonad/polybar/modules/modules.ini
+include-file = ~/.xmonad/polybar/themes/colors/gruvbox.ini
+#+end_src
+
+** Main XMonad Bar
+#+begin_src conf :tangle polybar/config.ini
+[bar/xmonad]
+width = 100%
+height = 17pt
+radius = 0
+fixed-center = true
+#+end_src
+
+** Background And Foreground Color
+#+begin_src conf :tangle polybar/config.ini
+background = ${colors.background}
+foreground = ${colors.foreground}
+#+end_src
+
+** Line size
+#+begin_src conf :tangle polybar/config.ini
+line-size = 2pt
+#+end_src
+
+** Padding from Left And Right
+#+begin_src conf :tangle polybar/config.ini
+padding-left = 0
+padding-right = 0
+#+end_src
+
+** Gap between Modules
+#+begin_src conf :tangle polybar/config.ini
+module-margin = 1
+#+end_src
+
+** Different font for Icons and Names
+#+begin_src conf :tangle polybar/config.ini
+font-0 = JetBrainsMono Nerd Font:pixelsize=10;2
+font-1 = Font Awesome 6 Free Solid:pixelsize=11;2
+font-2 = Font Awesome 6 Brands:pixelsize=11;2
+font-3 = Font Awesome 6 Free Solid:pixelsize=13;3
+font-4 = Font Awesome 6 Free Solid:pixelsize=12;3
+#+end_src
+
+** Placement of different Modules
+#+begin_src conf :tangle polybar/config.ini
+modules-left = xmonad
+modules-right = keyboard cpu memory uptime battery date
+#+end_src
+
+** Cursor while hover And Scroll
+#+begin_src conf :tangle polybar/config.ini
+cursor-click = pointer
+cursor-scroll = ns-resize
+#+end_src
+
+** Tray position and size
+#+begin_src conf :tangle polybar/config.ini
+tray-position = right
+tray-scale = 1
+tray-maxsize = 24
+#+end_src
+
+* Sxhkd (Keybindings)
+** Applications
+#+begin_src conf :tangle sxhkd/sxhkdrc
+ctrl + @space
+    rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
+
+alt + b
+    qutebrowser
+
+ctrl + shift + e
+    emacsclient -c
+#+end_src
+
+** DM-Scripts
+#+begin_src conf :tangle sxhkd/sxhkdrc
+alt + slash ; {l,m,c}
+    {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q, $HOME/.config/suckless/dmenu/scripts/dm-confedit}
+#+end_src
+
+** Audio Bindings
+#+begin_src conf :tangle sxhkd/sxhkdrc
+ctrl + shift + m
+    DunstVol mute
+
+ctrl + shift + Up
+    DunstVol up
+
+ctrl + shift + Down
+    DunstVol down
+
+alt + shift + m
+        amixer set Capture toggle
+
+alt + shift + Up
+        amixer set Capture 10%+ unmute
+
+alt + shift + Down
+        amixer set Capture 10%- unmute
+#+end_src
+
+** Brightness(Brillo)
+#+begin_src conf :tangle sxhkd/sxhkdrc
+ctrl + shift + Right
+    Brightness up
+
+ctrl + shift + Left
+    Brightness down
+#+end_src
+
+** ScreenShot (scrot)
+#+begin_src conf :tangle sxhkd/sxhkdrc
+Print
+    scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100
+
+ctrl + Print
+    import png:- | xclip -selection clipboard -t image/png
+#+end_src
+
+** Notification (Dunst)
+#+begin_src conf :tangle sxhkd/sxhkdrc
+ctrl + grave
+    dunstctl history-pop
+
+ctrl + shift + grave
+    dunstctl close
+#+end_src
+
+** Toggle polybar
+#+begin_src conf :tangle sxhkd/sxhkdrc
+alt + shift + b
+    polybar-msg cmd toggle
+#+end_src
