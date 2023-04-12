@@ -1,7 +1,0 @@
-#! /bin/bash 
-
-dte="$(date | awk '{print $3}')"
-mth="$(date | awk '{print $2}')"
-year="$(date | awk '{print $7}')"
-time="$(date +"%l:%M |     ")"
-echo -e "$mth" "$dte" "$year-""$time"
