@@ -1,0 +1,16 @@
+#! /bin/sh
+
+# Applications to start on session start
+# Intended to be called from bspwmrc or similar wm startup script
+
+# keybindings daemon
+sxhkd -m 1 &
+
+# set the wallpaper
+~/.fehbg &
+
+# wifi
+nm-applet &
+
+# launch polybar
+$HOME/.config/bspwm/polybar/launch.sh &
