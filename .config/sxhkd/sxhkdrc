@@ -1,0 +1,110 @@
+alt + Return
+    alacritty
+
+ctrl + @space
+    rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
+
+alt + b
+    firefox
+
+alt + slash ; {l,m,c}
+    {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q, $HOME/.config/suckless/dmenu/scripts/dm-confedit}
+
+ctrl + shift + m
+    DunstVol mute
+
+ctrl + shift + Up
+    DunstVol up
+
+ctrl + shift + Down
+    DunstVol down
+
+alt + shift + m
+        amixer set Capture toggle
+
+alt + shift + Up
+        amixer set Capture 10%+ unmute
+
+alt + shift + Down
+        amixer set Capture 10%- unmute
+
+ctrl + shift + Right
+    Brightness up
+
+ctrl + shift + Left
+    Brightness down
+
+Print
+    scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100
+
+ctrl + Print
+    import png:- | xclip -selection clipboard -t image/png
+
+ctrl + grave
+    dunstctl history-pop
+
+ctrl + shift + grave
+    dunstctl close
+
+alt + shift + b
+    polybar-msg cmd toggle
+
+#
+# bspwm hotkeys
+#
+
+# quit/restart bspwm
+alt + shift + q
+	bspc quit
+
+alt + q
+	bspc wm -r
+
+# close and kill
+alt + {_,shift + }c
+	bspc node -{c,k}
+
+#
+# state/flags
+#
+
+alt + {_,shift + }space
+	bspc node {focused.tiled -t fullscreen,focused.fullscreen -t tiled}
+
+super + f
+	bspc node focused.tiled -t floating
+
+super + t
+	bspc node focused.floating -t tiled
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+alt + {h,j,k,l}
+	bspc node -{f} {west,south,north,east}
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+# focus or send to the given desktop
+alt + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# move/resize
+#
+
+# expand a window by moving one of its side outward
+alt + shift + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
