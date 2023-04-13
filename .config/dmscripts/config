@@ -16,7 +16,7 @@ esac
 bookman_show_source=1
 # sounds_dir="${HOME}/.config/dmscripts/dmsounds"
 # setbg_dir="${HOME}/Pictures/Wallpapers"
-# use_imv=0 
+# use_imv=0
 # maim_dir="${HOME}/Screenshots"
 # maim_file_prefix="maim"
 # note_dir="${HOME}/.config/dmscripts/dmnote"
@@ -24,15 +24,8 @@ bookman_show_source=1
 # dm-confedit
 declare -A confedit_list
 confedit_list[dmscripts]="$HOME/.config/dmscripts/config"
-confedit_list[dmscripts]="$HOME/.config/dmscripts/config"
 confedit_list[alacritty]="$HOME/.config/alacritty/alacritty.yml"
 confedit_list[rofi]="$HOME/.config/rofi/config.rasi"
-confedit_list[awesome]="$HOME/.config/awesome/rc.lua"
-confedit_list[bash]="$HOME/.bashrc"
-confedit_list[doom emacs config.el]="$HOME/.config/.doom.d/config.el"
-confedit_list[doom emacs config.org]="$HOME/.config/.doom.d/config.org"
-confedit_list[doom emacs init.el]="$HOME/.config/.doom.d/init.el"
-confedit_list[doom emacs packages.el]="$HOME/.config/.doom.d/packages.el"
 confedit_list[dwm]="$HOME/.config/suckless/dwm/config.def.h"
 confedit_list[dwmblocks]="$HOME/.config/suckless/dwmblocks/blocks.def.h"
 confedit_list[dmenu]="$HOME/.config/suckless/dmenu/config.def.h"
@@ -48,9 +41,11 @@ confedit_list[qtile]="$HOME/.config/qtile/config.py"
 confedit_list[qutebrowser bookmarks]="$HOME/.config/qutebrowser/bookmarks/urls"
 confedit_list[qutebrowser quickmarks]="$HOME/.config/qutebrowser/quickmarks"
 confedit_list[qutebrowser config.py]="$HOME/.config/qutebrowser/config.py"
-confedit_list[sxhkd]="$HOME/.xmonad/sxhkd/sxhkdrc"
+confedit_list[sxhkd(XMonad)]="$HOME/.xmonad/sxhkd/sxhkdrc"
+confedit_list[sxhkd(i3)]="$HOME/.config/i3/sxhkd/sxhkdrc"
+confedit_list[sxhkd(qtile)]="$HOME/.config/qtile/sxhkd/sxhkdrc"
 confedit_list[ xmonad]="$HOME/.xmonad/xmonad.hs"
-confedit_list[zsh]="$HOME/.zshrc"
+confedit_list[zsh]="$HOME/.config/zsh/.zshrc"
 
 # dm-reddit config
 declare -a reddit_list=(
@@ -69,7 +64,7 @@ declare -a reddit_list=(
 "r/vim"
 )
 
-# Search engine config 
+# Search engine config
 declare -A websearch
 # Syntax:
 # websearch[name]="https://www.example.com/search?q="
