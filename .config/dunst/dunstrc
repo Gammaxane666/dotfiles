@@ -10,7 +10,7 @@
     progress_bar_max_width = 400
     indicate_hidden = yes
     shrink = no
-    corner_radius = 9
+    corner_radius = 2
 
     separator_height = 2
     padding = 15

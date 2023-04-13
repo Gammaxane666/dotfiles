@@ -31,7 +31,7 @@ myBorderWidth   = 1
 
 myModMask       = mod1Mask
 
-myWorkspaces    = ["1","2","3","4","5","6","7"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8"]
 
 myFocusedBorderColor  = "#fe8019"
 myNormalBorderColor   = "#1B1D1E"
@@ -163,4 +163,4 @@ main = xmonad $ docks .ewmh $ fullscreenSupportBorder $ def {
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
         startupHook        = myStartupHook
-  }
+}
