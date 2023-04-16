@@ -1,11 +1,15 @@
-ctrl + space
-	rofi -terminal alacritty -show drun -icon-theme "Papirus" -show-icons
+        ################################################### APPLICATIONS #############################################################
 
 alt + b
     qutebrowser
 
-alt + slash ; {l,m,c}
-    {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q, $HOME/.config/suckless/dmenu/scripts/dm-confedit}
+alt + slash ; {l,m}
+    {$HOME/.config/suckless/dmenu/scripts/dm-logout, $HOME/.config/suckless/dmenu/scripts/dm-music -q,}
+
+alt + slash ; {p,e,v}
+    {alacritty -e ncmpcpp,alacritty -e lf, alacritty -e vi}
+
+        ################################################### AUDIO BINDINGS #############################################################
 
 ctrl + shift + m
     DunstVol mute
@@ -25,20 +29,18 @@ alt + shift + Up
 alt + shift + Down
         amixer set Capture 10%- unmute
 
+        ################################################### BRIGHTNESS #############################################################
+
 ctrl + shift + Right
-   Brightness up
+    Brightness up
 
 ctrl + shift + Left
-   Brightness down
+    Brightness down
+
+        ################################################### SCREENSHOT #############################################################
 
 Print
     scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100
 
 ctrl + Print
     import png:- | xclip -selection clipboard -t image/png
-
-ctrl + grave
-    dunstctl history-pop
-
-ctrl + shift + grave
-    dunstctl close
