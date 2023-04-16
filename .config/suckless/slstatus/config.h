@@ -68,9 +68,9 @@ static const struct arg args[] = {
         { cpu_perc,             "^c#03a598^         %s%% ^c#ffffff^|",      NULL },
         { ram_used,             "^c#fe8019^  %s ^c#ffffff^|",        NULL },
         { uptime,                "^c#98971a^  %s ^c#ffffff^|",       NULL},
-        { keymap,               "^c#d3869b^   %s ^c#ffffff^|",          NULL },
-        { battery_perc,         "^c#d79921^   %s%%",       "BAT0"},
+        { keymap,               "^c#d3869b^  %s ^c#ffffff^|",          NULL },
+        { battery_perc,         "^c#d79921^  %s%%",       "BAT0"},
         { battery_state,        "(%s) ^c#ffffff^|",                   "BAT0" },
-        { datetime,             "^c#8ec07c^  %s    ",        "%a,%d-%b(%H:%M)" },
+        { datetime,             "^c#8ec07c^  %s ^c#ffffff^|   ",        "%a,%d-%b(%H:%M)" },
 
 };
