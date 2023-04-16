@@ -5,6 +5,7 @@ import System.Exit
 
 import XMonad.Layout.Fullscreen ( fullscreenSupportBorder )
 import XMonad.Hooks.ManageDocks ( avoidStruts, docks )
+import XMonad.Hooks.ManageHelpers ( doCenterFloat )
 import XMonad.Layout.Spacing ( spacingWithEdge )
 import XMonad.Hooks.EwmhDesktops ( ewmh )
 import XMonad.Util.SpawnOnce
@@ -62,6 +63,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Dmenu Scripts
     , ((modm.|.shiftMask, xK_l), spawn"$HOME/.config/suckless/dmenu/scripts/dm-logout")
     , ((modm.|.shiftMask, xK_c), spawn"$HOME/.config/suckless/dmenu/scripts/dm-confedit")
+
+    , ((0,xK_Print), spawn "scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100")
 
     -- Toggle the polybar bar
      , ((modm.|.shiftMask, xK_b), spawn "polybar-msg cmd toggle ")
@@ -134,8 +137,9 @@ myLayout = avoidStruts(tiled) ||| Full
      delta   = 3/100
 
 myManageHook = composeAll
-    [ resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+   [ className =? "Nm-applet"      --> doCenterFloat
+    ,resource  =? "desktop_window" --> doIgnore
+    , resource  =? "kdesktop"      --> doIgnore ]
 
 myEventHook = mempty
 
