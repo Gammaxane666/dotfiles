@@ -12,6 +12,11 @@ alias so='source $HOME/.config/fish/config.fish'
 alias ls='exa -l -g --icons'
 alias ll='ls --tree --level=2 -a'
 
+alias wal='/usr/bin/git --git-dir=$HOME/Stuff/Wallpaper --work-tree=$HOME'
+alias wpsh='wal push origin master'
+alias wcmt='wal commit'
+alias wad='wal add'
+
 alias dpsh='config push origin master'
 alias dcmt='config commit'
 alias dad='config add'
