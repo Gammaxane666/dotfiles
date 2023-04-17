@@ -66,6 +66,10 @@ static const Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_Down,   spawn,          SHCMD("$HOME/.local/bin/DunstVol down")},
 	{ ControlMask|ShiftMask,        XK_m,      spawn,          SHCMD("$HOME/.local/bin/DunstVol mute")},
 
+    /* Brightness */
+	{ ControlMask|ShiftMask,        XK_Right,   spawn,         SHCMD("$HOME/.local/bin/Brightness up")},
+	{ ControlMask|ShiftMask,        XK_Left,    spawn,         SHCMD("$HOME/.local/bin/Brightness down")},
+
     /* Screenshot */
 	{ 0,                            XK_Print,  spawn,          SHCMD("scrot '%Y-%m-%d_%H-%M-%S.png' -e 'mv $f ~/Pictures/Screenshots/' -q 100")},
 	{ ControlMask,                  XK_Print,  spawn,          SHCMD("import png:- | xclip -selection clipboard -t image/png")},
