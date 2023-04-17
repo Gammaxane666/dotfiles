@@ -1,7 +1,7 @@
 These are all of my configuration files that I use.
 
 My XMonad Rice
-#+html: <p align="center"><img src="https://gitlab.com/m-xylene/Dotfiles/-/blob/master/.github/ArchDesktop.png" /></p>
+#+html: <p align="center"><img src="https://github.com/Gammaxane666/dotfiles/blob/master/.github/ArchDesktop.png" /></p>
 
 My DWM Rice
-#+html: <p align="center"><img src="https://gitlab.com/m-xylene/Dotfiles/-/blob/master/.github/DwmDesktop.png" /></p>
+#+html: <p align="center"><img src="https://github.com/Gammaxane666/dotfiles/blob/master/.github/DwmDesktop.png" /></p>
