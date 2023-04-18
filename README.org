@@ -1,5 +1,4 @@
-* NOTE:- I am moving my config files to gitlab so please refer this link
-https://gitlab.com/M-Xylene/Dotfiles.git
+** NOTE:- I am moving my config files to gitlab so please refer this link: https://gitlab.com/M-Xylene/Dotfiles.git
 
 These are all of my configuration files that I use.
 
