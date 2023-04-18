@@ -5,3 +5,6 @@ My XMonad Rice
 
 My DWM Rice
 #+html: <p align="center"><img src="https://github.com/Gammaxane666/dotfiles/blob/master/.github/DwmDesktop.png" /></p>
+
+NOTE:- I am moving my config files to gitlab so please refer this link
+https://gitlab.com/M-Xylene/Dotfiles.git
